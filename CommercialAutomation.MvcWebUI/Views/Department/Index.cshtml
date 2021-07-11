@@ -1,0 +1,51 @@
+﻿@using CommercialAutomation.Entities.Concrete
+@model List<Department>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@{ string status = "";}
+@{ string statusButton = "";}
+
+<a href="/Department/Add/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Departman Ekle</a>
+<table class="table table-bordered">
+    <tr style="background-color:deepskyblue">
+        <th>Id</th>
+        <th>Departman</th>
+        <th>Durum</th>
+        <th>Aktif &ndash; Pasif</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.DepartmentStatus == true)
+        {
+            status = "Pasif Yap";
+        }
+        if (item.DepartmentStatus == false)
+        {
+            status = "Aktif Yap";
+        }
+        if (item.DepartmentStatus == true)
+        {
+            statusButton = "btn btn-danger";
+        }
+        if (item.DepartmentStatus == false)
+        {
+            statusButton = "btn btn-warning";
+        }
+
+        <tr>
+            <th>@item.DepartmentId</th>
+            <td>@item.DepartmentName</td>
+            <td>@item.DepartmentStatus</td>
+            <td><a href="/Department/Delete/@item.DepartmentId" class="@statusButton">@status</a></td>
+            <td><a href="/Department/Update/@item.DepartmentId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
+        </tr>
+    }
+</table>
+
+

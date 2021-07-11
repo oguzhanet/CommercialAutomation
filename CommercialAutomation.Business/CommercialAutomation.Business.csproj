@@ -75,9 +75,11 @@
   <ItemGroup>
     <Compile Include="Abstract\IAdminService.cs" />
     <Compile Include="Abstract\ICategoryService.cs" />
+    <Compile Include="Abstract\IDepartmentService.cs" />
     <Compile Include="Abstract\IProductService.cs" />
     <Compile Include="Concrete\AdminManager.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
+    <Compile Include="Concrete\DepartmentManager.cs" />
     <Compile Include="Concrete\ProductManager.cs" />
     <Compile Include="DependencyResolvers\Ninject\NinjectBusinessModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
