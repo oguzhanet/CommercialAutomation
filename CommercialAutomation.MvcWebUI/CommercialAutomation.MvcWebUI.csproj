@@ -2554,6 +2554,8 @@
     <Content Include="Templates\Web\src\scss\_global.scss" />
     <Content Include="Templates\Web\src\scss\_variables.scss" />
     <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Category\AddCategory.cshtml" />
+    <Content Include="Views\Category\UpdateCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2581,6 +2583,24 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommercialAutomation.Business\CommercialAutomation.Business.csproj">
+      <Project>{1E20A071-A267-43D9-BB48-352E2761795A}</Project>
+      <Name>CommercialAutomation.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommercialAutomation.DataAccess\CommercialAutomation.DataAccess.csproj">
+      <Project>{484FA0EE-2941-4499-BE2E-7AB3661D330E}</Project>
+      <Name>CommercialAutomation.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommercialAutomation.Entities\CommercialAutomation.Entities.csproj">
+      <Project>{EE374D2F-A632-4508-8DDE-63330A0EF8CA}</Project>
+      <Name>CommercialAutomation.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DevFramework.Core\DevFramework.Core.csproj">
+      <Project>{93C91DD3-067E-4806-A7FF-F8F9B3E570D7}</Project>
+      <Name>DevFramework.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

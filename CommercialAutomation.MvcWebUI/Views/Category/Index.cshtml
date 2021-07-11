@@ -1,30 +1,49 @@
-﻿
+﻿@using CommercialAutomation.Entities.Concrete
+@model List<Category>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<a href="/AdminCategory/AddCategory/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Kategori Ekle</a>
+@{ string status = "";}
+@{ string statusButton = "";}
+
+<a href="/Category/AddCategory/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Kategori Ekle</a>
 <table class="table table-bordered">
     <tr>
-        <th>#</th>
+        <th>Id</th>
         <th>Kategori Adı</th>
-        <th>Açıklama</th>
         <th>Durum</th>
-        <th>Sil</th>
+        <th>Aktif &ndash; Pasif</th>
         <th>Güncelle</th>
     </tr>
 
-    @*@foreach (var item in Model)
+    @foreach (var item in Model)
     {
+        if (item.CategoryStatus == true)
+        {
+            status = "Pasif Yap";
+        }
+        if (item.CategoryStatus == false)
+        {
+            status = "Aktif Yap";
+        }
+        if (item.CategoryStatus == true)
+        {
+            statusButton = "btn btn-danger";
+        }
+        if (item.CategoryStatus == false)
+        {
+            statusButton = "btn btn-warning";
+        }
+
         <tr>
             <th>@item.CategoryId</th>
             <td>@item.CategoryName</td>
-            <td>@item.CategoryDescription</td>
             <td>@item.CategoryStatus</td>
-            <td><a href="/AdminCategory/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a></td>
-            <td><a href="/AdminCategory/UpdateCategory/@item.CategoryId" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Category/DeleteCategory/@item.CategoryId" class="@statusButton">@status</a></td>
+            <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
         </tr>
-    }*@
+    }
 </table>
 

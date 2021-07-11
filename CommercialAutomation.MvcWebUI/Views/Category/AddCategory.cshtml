@@ -1,0 +1,31 @@
+﻿@model CommercialAutomation.Entities.Concrete.Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Kategori ekleme sayfası</h3>
+@using (Html.BeginForm("AddCategory", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+       <b>@Html.Label("Kategori Adı")</b>
+        @Html.TextBoxFor(c => c.CategoryName, new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(c => c.CategoryName)*@
+        <br />
+        <button class="btn btn-info" id="added">Ekle</button>
+    </div>
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#added').click(function () {
+        swal({
+            title: "Eklendi!",
+            text: "Kategori Başarıyla Eklendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>
