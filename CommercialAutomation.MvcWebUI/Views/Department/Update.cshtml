@@ -1,0 +1,35 @@
+﻿@model CommercialAutomation.Entities.Concrete.Department
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Kategori güncelleme sayfası</h3>
+
+@using (Html.BeginForm("Update", "Department", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.DepartmentId)
+        <b>@Html.Label("Departman Adı")</b>
+        @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-default" id="updated" style="background-color:#ff6a00; color:white;">Değişiklikleri Kaydet</button>
+    </div>
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#updated').click(function () {
+        swal({
+            title: "Güncellendi!",
+            text: "Departman Başarıyla Güncellendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>
+
+
+

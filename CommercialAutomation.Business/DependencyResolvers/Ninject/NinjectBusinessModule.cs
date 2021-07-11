@@ -20,6 +20,12 @@ namespace CommercialAutomation.Business.DependencyResolvers.Ninject
 
             Bind<IProductService>().To<ProductManager>().InSingletonScope();
             Bind<IProductDal>().To<EfProductDal>().InSingletonScope();
+
+            Bind<IDepartmentService>().To<DepartmentManager>().InSingletonScope();
+            Bind<IDepartmentDal>().To<EfDepartmentDal>().InSingletonScope();
+
+            Bind<IEmployeeService>().To<EmployeeManager>().InSingletonScope();
+            Bind<IEmployeeDal>().To<EfEmployeeDal>().InSingletonScope();
         }
     }
 }

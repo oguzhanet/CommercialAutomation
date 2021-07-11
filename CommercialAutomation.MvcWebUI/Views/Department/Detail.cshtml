@@ -1,0 +1,33 @@
+﻿@using CommercialAutomation.Entities.Concrete
+@model List<Employee>
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Departman Detayları Sayfası</h2>
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">@ViewBag.departmentName</li>
+</ol>
+
+<table class="table table-striped">
+    <tr style="background-color:deepskyblue">
+        <th>Id</th>
+        <th>Personel Adı</th>
+        <th>Personel Soyadı</th>
+        <th>Personel Resmi</th>
+        <th>Satış Detayları</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.EmployeeId</th>
+            <td>@item.EmployeeName</td>
+            <td>@item.EmployeeLastName</td>
+            <td>@item.EmployeeImage</td>
+            <td><a href="/Department/Detail/@item.DepartmentId" class="btn btn-default" style="background-color:#0094ff; color:white;">Satış Detay</a></td>
+        </tr>
+    }
+</table>

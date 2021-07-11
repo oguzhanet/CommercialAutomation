@@ -2565,6 +2565,9 @@
     <Content Include="Views\Product\Add.cshtml" />
     <Content Include="Views\Product\Update.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\Add.cshtml" />
+    <Content Include="Views\Department\Update.cshtml" />
+    <Content Include="Views\Department\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
