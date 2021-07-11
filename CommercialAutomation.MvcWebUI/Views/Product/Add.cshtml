@@ -1,0 +1,50 @@
+﻿@model CommercialAutomation.Entities.Concrete.Product
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Ürün ekleme sayfası</h3>
+@using (Html.BeginForm("Add", "Product", FormMethod.Post))
+{
+<div class="form-group">
+    <b>@Html.Label("Ürün")</b>
+    @Html.TextBoxFor(c => c.ProductName, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Marka")</b>
+    @Html.TextBoxFor(c => c.Brand, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Kategori")</b>
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.valueCategory,
+      new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Stock Adedi")</b>
+    @Html.TextBoxFor(c => c.UnitsInStock, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Alış Fiyatı")</b>
+    @Html.TextBoxFor(c => c.PurchasePrice, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Satış Fiyatı")</b>
+    @Html.TextBoxFor(c => c.SalePrice, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Görsel")</b>
+    @Html.TextBoxFor(c => c.ProductImage, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" id="added">Ekle</button>
+</div>
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#added').click(function () {
+        swal({
+            title: "Eklendi!",
+            text: "Kategori Başarıyla Eklendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>
+
