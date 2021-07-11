@@ -52,6 +52,31 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Update(int id)
+        {
+            List<SelectListItem> valueCategory = (from category in _categoryService.GetAll()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = category.CategoryName,
+                                                      Value = category.CategoryId.ToString()
+                                                  }).ToList();
+            ViewBag.valueCategory = valueCategory;
+
+            var result = _productService.GetById(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public ActionResult Update(Product product)
+        {
+            var result = _productService.GetById(product.ProductId);
+            product.ProductStatus = result.ProductStatus;
+            _productService.Update(product);
+            Thread.Sleep(1500);
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Delete(int id)
         {
             var result = productManager.GetById(id);

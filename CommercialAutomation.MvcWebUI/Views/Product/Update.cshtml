@@ -1,0 +1,52 @@
+﻿@model CommercialAutomation.Entities.Concrete.Product
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Kategori güncelleme sayfası</h3>
+
+@using (Html.BeginForm("Update", "Product", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x=>x.ProductId)
+    <b>@Html.Label("Ürün")</b>
+    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Marka")</b>
+    @Html.TextBoxFor(x => x.Brand, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Kategori")</b>
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.valueCategory,
+      new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Stock Adedi")</b>
+    @Html.TextBoxFor(x => x.UnitsInStock, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Alış Fiyatı")</b>
+    @Html.TextBoxFor(x => x.PurchasePrice, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Satış Fiyatı")</b>
+    @Html.TextBoxFor(x => x.SalePrice, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Görsel")</b>
+    @Html.TextBoxFor(x => x.ProductImage, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-default" id="updated" style="background-color:#ff6a00; color:white;">Değişiklikleri Kaydet</button>
+</div>
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#updated').click(function () {
+        swal({
+            title: "Güncellendi!",
+            text: "Kategori Başarıyla Güncellendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>
+
