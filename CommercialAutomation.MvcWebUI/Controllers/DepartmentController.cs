@@ -48,6 +48,10 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         public ActionResult DepartmentSaleMovement(int id)
         {
             var result = _saleMovementService.GetAllByEmployeeId(id);
+
+            var name = _context.Employees.Where(x => x.EmployeeId == id).Select(z => z.EmployeeName + " " + z.EmployeeLastName).FirstOrDefault();
+            ViewBag.name = name;
+
             return View(result);
         }
 
