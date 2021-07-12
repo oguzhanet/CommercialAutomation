@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Departman Detayları Sayfası</h2>
+<h3>Departman Personel Satış Sayfası</h3>
 
 <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item active">@ViewBag.departmentName</li>
@@ -27,7 +27,7 @@
             <td>@item.EmployeeName</td>
             <td>@item.EmployeeLastName</td>
             <td>@item.EmployeeImage</td>
-            <td><a href="/Department/Detail/@item.DepartmentId" class="btn btn-default" style="background-color:#0094ff; color:white;">Satış Detay</a></td>
+            <td><a href="/Department/DepartmentSaleMovement/@item.EmployeeId" class="btn btn-default" style="background-color:#0094ff; color:white;">Satış Detay</a></td>
         </tr>
     }
 </table>

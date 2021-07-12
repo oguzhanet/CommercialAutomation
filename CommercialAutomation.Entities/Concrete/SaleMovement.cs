@@ -12,9 +12,10 @@ namespace CommercialAutomation.Entities.Concrete
     {
         [Key]
         public int SaleMovementId { get; set; }
-        public int Price { get; set; }
+        public int Piece { get; set; }
         public decimal UnitPirce { get; set; }
         public decimal SumPrice { get; set; }
+        public DateTime SaleDate { get; set; }
 
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }

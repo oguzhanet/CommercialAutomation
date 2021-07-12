@@ -2568,6 +2568,7 @@
     <Content Include="Views\Department\Add.cshtml" />
     <Content Include="Views\Department\Update.cshtml" />
     <Content Include="Views\Department\Detail.cshtml" />
+    <Content Include="Views\Department\DepartmentSaleMovement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -18,11 +18,15 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         DepartmentManager departmentManager = new DepartmentManager(new EfDepartmentDal());
         IDepartmentService _departmentService;
         IEmployeeService _employeeService;
+        ISaleMovementService _saleMovementService;
+        Context _context;
 
-        public DepartmentController(IDepartmentService departmentService, IEmployeeService employeeService)
+        public DepartmentController(IDepartmentService departmentService, IEmployeeService employeeService, ISaleMovementService saleMovementService, Context context)
         {
             _departmentService = departmentService;
             _employeeService = employeeService;
+            _saleMovementService = saleMovementService;
+            _context = context;
         }
 
         public ActionResult Index()
@@ -35,10 +39,15 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         {
             var result = _employeeService.GetAllByDepartmentId(id);
 
-            Context context = new Context();
-            var departmentName = context.Departments.Where(x => x.DepartmentId == id).Select(z => z.DepartmentName).FirstOrDefault();
+            var departmentName = _context.Departments.Where(x => x.DepartmentId == id).Select(z => z.DepartmentName).FirstOrDefault();
             ViewBag.departmentName = departmentName;
 
+            return View(result);
+        }
+
+        public ActionResult DepartmentSaleMovement(int id)
+        {
+            var result = _saleMovementService.GetAllByEmployeeId(id);
             return View(result);
         }
 

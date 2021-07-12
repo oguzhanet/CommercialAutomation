@@ -1,0 +1,40 @@
+﻿@using CommercialAutomation.Entities.Concrete
+@model List<SaleMovement>
+@{
+    ViewBag.Title = "DepartmentSaleMovement";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>DepartmentSaleMovement</h3>
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">@ViewBag.departmentName</li>
+</ol>
+
+
+<table class="table table-striped">
+    <tr style="background-color:deepskyblue">
+        <th>Id</th>
+        <th>Ürün</th>
+        <th>Muşteri</th>
+        <th>Adet</th>
+        <th>Fiyat</th>
+        <th>Toplam Fiyat</th>
+        <th>Tarih</th>
+        <th>Yazdır</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <th>@item.SaleMovementId</th>
+    <td>@item.Product.ProductName</td>
+    <td>@item.Customer.CustomerName @item.Customer.CustomerLastName</td>
+    <td>@item.Piece</td>
+    <td>@item.UnitPirce</td>
+    <td>@item.SumPrice</td>
+    <td>@item.SaleDate</td>
+    <td><a href="#" class="btn btn-default" style="background-color:#0094ff; color:white;">Satış Detay</a></td>
+</tr>
+    }
+</table>
