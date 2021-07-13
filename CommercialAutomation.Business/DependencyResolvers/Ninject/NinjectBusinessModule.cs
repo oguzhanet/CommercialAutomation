@@ -29,6 +29,9 @@ namespace CommercialAutomation.Business.DependencyResolvers.Ninject
 
             Bind<ISaleMovementService>().To<SaleMovementManager>().InSingletonScope();
             Bind<ISaleMovementDal>().To<EfSaleMovementDal>().InSingletonScope();
+
+            Bind<ICustomerService>().To<CustomerManager>().InSingletonScope();
+            Bind<ICustomerDal>().To<EfCustomerDal>().InSingletonScope();
         }
     }
 }

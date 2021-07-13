@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
+    <Compile Include="Abstract\ICustomerDal.cs" />
     <Compile Include="Abstract\IDepartmentDal.cs" />
     <Compile Include="Abstract\IEmployeeDal.cs" />
     <Compile Include="Abstract\IProductDal.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\EntityFramework\EfAdminDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCustomerDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfDepartmentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfEmployeeDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfProductDal.cs" />

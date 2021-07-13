@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CommercialAutomation.Entities.Concrete
 {
-    public class Customer:IEntity
+    public class Customer : IEntity
     {
         [Key]
         public int CustomerId { get; set; }
