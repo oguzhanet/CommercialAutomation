@@ -1,0 +1,43 @@
+﻿@model CommercialAutomation.Entities.Concrete.Customer 
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Müşteri ekleme sayfası</h3>
+@using (Html.BeginForm("Add", "Customer", FormMethod.Post))
+{
+<div class="form-group">
+    <b>@Html.Label("Müşteri Adı")</b>
+    @Html.TextBoxFor(c => c.CustomerName, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Müşteri Soyadı")</b>
+    @Html.TextBoxFor(c => c.CustomerLastName, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Müşteri Şehir")</b>
+    @Html.TextBoxFor(c => c.CustomerCity, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Müşteri Mail")</b>
+    @Html.TextBoxFor(c => c.CustomerMail, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Müşteri Telefon")</b>
+    @Html.TextBoxFor(c => c.CustomerPhone, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" id="added">Ekle</button>
+</div>
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#added').click(function () {
+        swal({
+            title: "Eklendi!",
+            text: "Müşteri Başarıyla Eklendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>
+

@@ -41,7 +41,7 @@ namespace CommercialAutomation.MvcWebUI.Controllers
 
             var departmentName = _context.Departments.Where(x => x.DepartmentId == id).Select(z => z.DepartmentName).FirstOrDefault();
             ViewBag.departmentName = departmentName;
-
+            
             return View(result);
         }
 
