@@ -1,0 +1,41 @@
+﻿@using CommercialAutomation.Entities.Concrete
+@model List<SaleMovement>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<a href="/SaleMovement/Add/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Satış Ekle</a>
+<table class="table table-bordered">
+    <tr style="background-color:deepskyblue">
+        <th>Id</th>
+        <th>Ürün</th>
+        <th>Müşteri</th> 
+        <th>Personel</th>
+        <th>Adet</th>
+        <th>Birim Fiyat</th>
+        <th>Toplam Fiyat</th>
+        <th>Tarih</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.SaleMovementId</th>
+            <td>@item.Product.ProductName</td>
+            <td>@item.Customer.CustomerName @item.Customer.CustomerLastName</td>
+            <td>@item.Employee.EmployeeName @item.Employee.EmployeeLastName</td>
+            <td>@item.Piece</td>
+            <td>@item.UnitPirce</td>
+            <td>@item.SumPrice</td>
+            <td>@item.SaleDate</td>
+            <td><a href="/SaleMovement/Update/@item.SaleMovementId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
+            <td><a href="/SaleMovement/DepartmentSaleMovement/@item.SaleMovementId" class="btn btn-default" style="background-color:#0094ff; color:white;">Yazdır</a></td>
+        </tr>
+    }
+</table>
+
+
+
