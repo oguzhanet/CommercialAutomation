@@ -76,5 +76,22 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             Thread.Sleep(1500);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int id)
+        {
+            var result = employeeManager.GetById(id);
+
+            if (result.EmployeeStatus == true)
+            {
+                result.EmployeeStatus = false;
+            }
+            else
+            {
+                result.EmployeeStatus = true;
+            }
+
+            employeeManager.Update(result);
+            return RedirectToAction("Index");
+        }
     }
 }
