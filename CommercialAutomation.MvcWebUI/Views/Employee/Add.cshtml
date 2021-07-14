@@ -1,0 +1,42 @@
+﻿@model CommercialAutomation.Entities.Concrete.Employee
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Personel ekleme sayfası</h3>
+@using (Html.BeginForm("Add", "Employee", FormMethod.Post))
+{
+    <div class="form-group">
+        <b>@Html.Label("Peronel Adı")</b>
+        @Html.TextBoxFor(c => c.EmployeeName, new { @class = "form-control" })
+        <br />
+        <b>@Html.Label("Peronel Soyadı")</b>
+        @Html.TextBoxFor(c => c.EmployeeLastName, new { @class = "form-control" })
+        <br />
+        <b>@Html.Label("Departman")</b>
+        @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.valueDepartment,
+          new { @class = "form-control" })
+        <br />
+        <b>@Html.Label("Görsel")</b>
+        @Html.TextBoxFor(c => c.EmployeeImage, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info" id="added">Ekle</button>
+    </div>
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#added').click(function () {
+        swal({
+            title: "Eklendi!",
+            text: "Personel Başarıyla Eklendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>
+
+

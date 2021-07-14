@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CommercialAutomation.Entities.Concrete
 {
-    public class Employee:IEntity
+    public class Employee : IEntity
     {
         [Key]
         public int EmployeeId { get; set; }
@@ -18,6 +18,7 @@ namespace CommercialAutomation.Entities.Concrete
         public string EmployeeLastName { get; set; }
         [StringLength(500)]
         public string EmployeeImage { get; set; }
+        public bool EmployeeStatus { get; set; }
 
         public ICollection<SaleMovement> SaleMovements { get; set; }
 

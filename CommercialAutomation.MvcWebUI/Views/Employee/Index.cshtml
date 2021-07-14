@@ -1,0 +1,58 @@
+﻿@using CommercialAutomation.Entities.Concrete
+@model List<Employee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{ string status = "";}
+@{ string statusButton = "";}
+
+<a href="/Employee/Add/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Personel Ekle</a>
+<table class="table table-bordered">
+    <tr style="background-color:deepskyblue">
+        <th>Id</th>
+        <th>Personel Adı</th>
+        <th>Personel Soyadı</th>
+        <th>Departman</th>
+        <th>Görsel</th>
+        <th>Durum</th>
+        <th>Aktif &ndash; Pasif</th>
+        <th>Güncelle</th>
+        <th>Satışlar</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.EmployeeStatus == true)
+        {
+            status = "Pasif Yap";
+        }
+        if (item.EmployeeStatus == false)
+        {
+            status = "Aktif Yap";
+        }
+        if (item.EmployeeStatus == true)
+        {
+            statusButton = "btn btn-danger";
+        }
+        if (item.EmployeeStatus == false)
+        {
+            statusButton = "btn btn-warning";
+        }
+
+        <tr>
+            <th>@item.EmployeeId</th>
+            <td>@item.EmployeeName</td>
+            <td>@item.EmployeeLastName</td>
+            <td>@item.Department.DepartmentName</td>
+            <td>@item.EmployeeImage</td>
+            <td>@item.EmployeeStatus</td>
+            <td><a href="/Employee/Delete/@item.EmployeeId" class="@statusButton">@status</a></td>
+            <td><a href="/Employee/Update/@item.EmployeeId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
+            <td><a href="/Department/DepartmentSaleMovement/@item.EmployeeId" class="btn btn-default" style="background-color:#0094ff; color:white;">Satış Geçmişi</a></td>
+        </tr>
+    }
+</table>
+
+
