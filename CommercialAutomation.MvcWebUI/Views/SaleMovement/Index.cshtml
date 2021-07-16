@@ -7,20 +7,21 @@
 
 <a href="/SaleMovement/Add/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Satış Ekle</a>
 
-<table class="table table-bordered">
-    <tr style="background-color:deepskyblue">
-        <th>Id</th>
-        <th>Ürün</th>
-        <th>Müşteri</th> 
-        <th>Personel</th>
-        <th>Adet</th>
-        <th>Birim Fiyat</th>
-        <th>Toplam Fiyat</th>
-        <th>Tarih</th>
-        <th>Güncelle</th>
-        <th>Detaylar</th>
-    </tr>
-
+<table id="saleIndex" class="table table-bordered">
+    <thead>
+        <tr style="background-color:deepskyblue">
+            <th>Id</th>
+            <th>Ürün</th>
+            <th>Müşteri</th>
+            <th>Personel</th>
+            <th>Adet</th>
+            <th>Birim Fiyat</th>
+            <th>Toplam Fiyat</th>
+            <th>Tarih</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
     @foreach (var item in Model)
     {
         <tr>
@@ -37,3 +38,16 @@
         </tr>
     }
 </table>
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#saleIndex').dataTable({});
+</script>
+

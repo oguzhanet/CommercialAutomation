@@ -93,5 +93,11 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             productManager.Update(result);
             return RedirectToAction("Index");
         }
+
+        public ActionResult ProductList()
+        {
+            var result = productManager.GetAll();
+            return View(result);
+        }
     }
 }
