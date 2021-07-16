@@ -71,5 +71,46 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             Thread.Sleep(1500);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Update(int id)
+        {
+            List<SelectListItem> valueProduct = (from product in _productService.GetAll()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = product.ProductName,
+                                                     Value = product.ProductId.ToString()
+                                                 }).ToList();
+            ViewBag.valueProduct = valueProduct;
+
+            List<SelectListItem> valueEmployee = (from employee in _employeeService.GetAll()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = employee.EmployeeName + " " + employee.EmployeeLastName,
+                                                      Value = employee.EmployeeId.ToString()
+                                                  }).ToList();
+            ViewBag.valueEmployee = valueEmployee;
+
+            List<SelectListItem> valueCustomer = (from customer in _customerService.GetAll()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = customer.CustomerName + " " + customer.CustomerLastName,
+                                                      Value = customer.CustomerId.ToString()
+                                                  }).ToList();
+            ViewBag.valueCustomer = valueCustomer;
+
+            var result = _saleMovementService.GetById(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public ActionResult Update(SaleMovement saleMovement)
+        {
+            var result = _saleMovementService.GetById(saleMovement.SaleMovementId);
+            saleMovement.SaleDate = result.SaleDate;
+            _saleMovementService.Update(saleMovement);
+            Thread.Sleep(1500);
+            return RedirectToAction("Index");
+        }
     }
 }
