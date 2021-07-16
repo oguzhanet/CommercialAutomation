@@ -1,24 +1,22 @@
 ﻿@using CommercialAutomation.Entities.Concrete
 @model List<SaleMovement>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "SaleDetail";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<a href="/SaleMovement/Add/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Satış Ekle</a>
+<h3>Satış detayları sayfası</h3>
 
-<table class="table table-bordered">
+<table class="table table-striped">
     <tr style="background-color:deepskyblue">
         <th>Id</th>
         <th>Ürün</th>
-        <th>Müşteri</th> 
+        <th>Muşteri</th>
         <th>Personel</th>
         <th>Adet</th>
-        <th>Birim Fiyat</th>
+        <th>Fiyat</th>
         <th>Toplam Fiyat</th>
         <th>Tarih</th>
-        <th>Güncelle</th>
-        <th>Detaylar</th>
     </tr>
 
     @foreach (var item in Model)
@@ -32,8 +30,8 @@
             <td>@item.UnitPirce</td>
             <td>@item.SumPrice</td>
             <td>@item.SaleDate</td>
-            <td><a href="/SaleMovement/Update/@item.SaleMovementId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
-            <td><a href="/SaleMovement/SaleDetail/@item.SaleMovementId" class="btn btn-default" style="background-color:#0094ff; color:white;">Detaylar</a></td>
         </tr>
     }
 </table>
+<button class="btn btn-default" style="background-color:#0094ff; color:white;">Yazdır</button>
+

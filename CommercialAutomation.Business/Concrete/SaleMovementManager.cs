@@ -43,6 +43,11 @@ namespace CommercialAutomation.Business.Concrete
             return _saleMovementDal.GetAllById(x => x.EmployeeId == id);
         }
 
+        public List<SaleMovement> GetAllBySaleId(int id)
+        {
+            return _saleMovementDal.GetAllById(x => x.SaleMovementId == id);
+        }
+
         public SaleMovement GetById(int id)
         {
             return _saleMovementDal.Get(x => x.SaleMovementId == id);

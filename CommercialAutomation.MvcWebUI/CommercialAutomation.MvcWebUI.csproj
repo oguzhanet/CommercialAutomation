@@ -2582,6 +2582,7 @@
     <Content Include="Views\SaleMovement\Index.cshtml" />
     <Content Include="Views\SaleMovement\Add.cshtml" />
     <Content Include="Views\SaleMovement\Update.cshtml" />
+    <Content Include="Views\SaleMovement\SaleDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

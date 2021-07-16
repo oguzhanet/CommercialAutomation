@@ -112,5 +112,11 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             Thread.Sleep(1500);
             return RedirectToAction("Index");
         }
+
+        public ActionResult SaleDetail(int id)
+        {
+            var result = _saleMovementService.GetAllBySaleId(id);
+            return View(result);
+        }
     }
 }

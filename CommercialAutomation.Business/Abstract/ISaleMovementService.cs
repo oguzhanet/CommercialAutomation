@@ -12,6 +12,7 @@ namespace CommercialAutomation.Business.Abstract
         List<SaleMovement> GetAll();
         List<SaleMovement> GetAllByEmployeeId(int id);
         List<SaleMovement> GetAllByCustomerId(int id);
+        List<SaleMovement> GetAllBySaleId(int id);
         SaleMovement GetById(int id);
         void Add(SaleMovement saleMovement);
         void Update(SaleMovement saleMovement);
