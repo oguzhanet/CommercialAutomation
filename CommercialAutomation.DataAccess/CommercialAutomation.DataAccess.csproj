@@ -67,6 +67,7 @@
     <Compile Include="Concrete\EntityFramework\EfDepartmentDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfEmployeeDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfInvoiceDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfInvoiceItemDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfProductDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfSaleMovementDal.cs" />
     <Compile Include="Migrations\202107120954181_mig_saledate.cs" />

@@ -35,7 +35,7 @@ namespace CommercialAutomation.Business.Concrete
 
         public Invoice GetById(int id)
         {
-            return _ınvoiceDal.GetById(x => x.InvoiceId == id);
+            return _ınvoiceDal.Get(x => x.InvoiceId == id);
         }
 
         public void Update(Invoice ınvoice)
