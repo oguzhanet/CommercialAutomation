@@ -78,6 +78,14 @@
     <Compile Include="Migrations\202107141041147_mig_employeestatus.designer.cs">
       <DependentUpon>202107141041147_mig_employeestatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107191750281_mig_SumPrice.cs" />
+    <Compile Include="Migrations\202107191750281_mig_SumPrice.designer.cs">
+      <DependentUpon>202107191750281_mig_SumPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107191815189_mig_hour.cs" />
+    <Compile Include="Migrations\202107191815189_mig_hour.designer.cs">
+      <DependentUpon>202107191815189_mig_hour.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -87,6 +95,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107141041147_mig_employeestatus.resx">
       <DependentUpon>202107141041147_mig_employeestatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107191750281_mig_SumPrice.resx">
+      <DependentUpon>202107191750281_mig_SumPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107191815189_mig_hour.resx">
+      <DependentUpon>202107191815189_mig_hour.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

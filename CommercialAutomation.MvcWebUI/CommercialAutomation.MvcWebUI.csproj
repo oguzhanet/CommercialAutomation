@@ -2822,6 +2822,7 @@
     <Content Include="Views\SaleMovement\SaleDetail.cshtml" />
     <Content Include="Views\Product\ProductList.cshtml" />
     <Content Include="Views\Invoice\Index.cshtml" />
+    <Content Include="Views\Invoice\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

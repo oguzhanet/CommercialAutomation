@@ -23,7 +23,7 @@ namespace CommercialAutomation.Entities.Concrete
         [StringLength(50)]
         public string Receiver { get; set; }
         public DateTime Date { get; set; }
-        public DateTime Hour { get; set; }
+        public decimal SumPrice { get; set; }
 
         public ICollection<InvoiceItem> InvoiceItems { get; set; }
     }
