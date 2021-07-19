@@ -78,6 +78,7 @@
     <Compile Include="Abstract\ICustomerService.cs" />
     <Compile Include="Abstract\IDepartmentService.cs" />
     <Compile Include="Abstract\IEmployeeService.cs" />
+    <Compile Include="Abstract\IInvoiceService.cs" />
     <Compile Include="Abstract\IProductService.cs" />
     <Compile Include="Abstract\ISaleMovementService.cs" />
     <Compile Include="Concrete\AdminManager.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Concrete\CustomerManager.cs" />
     <Compile Include="Concrete\DepartmentManager.cs" />
     <Compile Include="Concrete\EmployeeManager.cs" />
+    <Compile Include="Concrete\InvoiceManager.cs" />
     <Compile Include="Concrete\ProductManager.cs" />
     <Compile Include="Concrete\SaleMovementManager.cs" />
     <Compile Include="DependencyResolvers\Ninject\NinjectBusinessModule.cs" />
