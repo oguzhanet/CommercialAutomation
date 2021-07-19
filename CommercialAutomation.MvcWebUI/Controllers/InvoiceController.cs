@@ -39,5 +39,6 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             Thread.Sleep(1500);
             return RedirectToAction("Index");
         }
+
     }
 }
