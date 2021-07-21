@@ -1,0 +1,44 @@
+﻿@model CommercialAutomation.Entities.Concrete.Invoice
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Fatura güncelleme sayfası</h3>
+
+@using (Html.BeginForm("Update", "Invoice", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.InvoiceId)
+    <b>@Html.Label("Sıra No")</b>
+    @Html.TextBoxFor(c => c.InvoiceSequenceNumber, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Seri No")</b>
+    @Html.TextBoxFor(c => c.InvoiceSerialNumber, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Vergi Dairesi")</b>
+    @Html.TextBoxFor(c => c.TaxAdministration, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Teslim Eden")</b>
+    @Html.TextBoxFor(c => c.DeliveryPerson, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Teslim Alan")</b>
+    @Html.TextBoxFor(c => c.Receiver, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-default" id="updated" style="background-color:#ff6a00; color:white;">Değişiklikleri Kaydet</button>
+</div>
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#updated').click(function () {
+        swal({
+            title: "Güncellendi!",
+            text: "Fatura Başarıyla Güncellendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>

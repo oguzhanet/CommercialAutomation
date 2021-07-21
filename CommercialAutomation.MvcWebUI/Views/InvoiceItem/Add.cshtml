@@ -1,0 +1,45 @@
+﻿@model CommercialAutomation.Entities.Concrete.InvoiceItem
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Müşteri ekleme sayfası</h3>
+@using (Html.BeginForm("Add", "InvoiceItem", FormMethod.Post))
+{
+<div class="form-group">
+    <b>@Html.Label("Ürün Açıklaması")</b>
+    @Html.TextBoxFor(c => c.Description, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Ürün Miktarı")</b>
+    @Html.TextBoxFor(c => c.Quantity, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Birim Fiyatı")</b>
+    @Html.TextBoxFor(c => c.UnitPrice, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Toplam Fiyatı")</b>
+    @Html.TextBoxFor(c => c.SumPrice, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Fatura Numarası")</b>
+    @Html.DropDownListFor(x => x.InvoiceId, (List<SelectListItem>)ViewBag.valueInvoice,
+     new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" id="added">Ekle</button>
+</div>
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#added').click(function () {
+        swal({
+            title: "Eklendi!",
+            text: "Fatura Kalem Başarıyla Eklendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>
+
+

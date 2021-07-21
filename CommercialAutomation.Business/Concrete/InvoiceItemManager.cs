@@ -33,6 +33,11 @@ namespace CommercialAutomation.Business.Concrete
             return _ınvoiceItemDal.GetAll();
         }
 
+        public List<InvoiceItem> GetAllByInvoiceId(int id)
+        {
+            return _ınvoiceItemDal.GetAllById(x => x.InvoiceId == id);
+        }
+
         public InvoiceItem GetById(int id)
         {
             return _ınvoiceItemDal.Get(x => x.InvoiceItemId == id);

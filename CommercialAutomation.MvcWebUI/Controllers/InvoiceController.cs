@@ -1,4 +1,6 @@
 ﻿using CommercialAutomation.Business.Abstract;
+using CommercialAutomation.Business.Concrete;
+using CommercialAutomation.DataAccess.Concrete.EntityFramework;
 using CommercialAutomation.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,16 +14,19 @@ namespace CommercialAutomation.MvcWebUI.Controllers
     public class InvoiceController : Controller
     {
         // GET: Invoice
+        InvoiceManager ınvoiceManager = new InvoiceManager(new EfInvoiceDal());
         IInvoiceService _ınvoiceService;
+        IInvoiceItemService _ınvoiceItemService;
 
-        public InvoiceController(IInvoiceService ınvoiceService)
+        public InvoiceController(IInvoiceService ınvoiceService, IInvoiceItemService ınvoiceItemService)
         {
             _ınvoiceService = ınvoiceService;
+            _ınvoiceItemService = ınvoiceItemService;
         }
 
         public ActionResult Index()
         {
-            var result = _ınvoiceService.GetAll();
+            var result = ınvoiceManager.GetAll();
             return View(result);
         }
 
@@ -40,5 +45,27 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Update(int id)
+        {
+            var result = _ınvoiceService.GetById(id);
+            return View(result);
+        }
+
+        [HttpPost]
+        public ActionResult Update(Invoice ınvoice)
+        {
+            var result = _ınvoiceService.GetById(ınvoice.InvoiceId);
+            ınvoice.Date = result.Date;
+            _ınvoiceService.Update(ınvoice);
+            Thread.Sleep(1500);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult InvoiceDetail(int id)
+        {
+            var result = _ınvoiceItemService.GetAllByInvoiceId(id);
+            return View(result);
+        }
     }
 }

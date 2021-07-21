@@ -10,6 +10,7 @@ namespace CommercialAutomation.Business.Abstract
     public interface IInvoiceItemService
     {
         List<InvoiceItem> GetAll();
+        List<InvoiceItem> GetAllByInvoiceId(int id);
         InvoiceItem GetById(int id);
         void Add(InvoiceItem ınvoiceItem);
         void Update(InvoiceItem ınvoiceItem);
