@@ -141,6 +141,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\InvoiceItemController.cs" />
@@ -2913,6 +2914,7 @@
     <Content Include="Templates\web3\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Templates\web3\images\Thumbs.db" />
     <Content Include="Templates\web3\js\js" />
+    <Content Include="Views\Gallery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
