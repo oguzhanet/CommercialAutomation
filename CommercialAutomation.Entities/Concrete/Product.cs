@@ -18,6 +18,8 @@ namespace CommercialAutomation.Entities.Concrete
         public string Brand { get; set; }
         [StringLength(500)]
         public string ProductImage { get; set; }
+        [StringLength(2000)]
+        public string ProductDescription { get; set; }
         public short UnitsInStock { get; set; }
         public decimal PurchasePrice { get; set; }
         public decimal SalePrice { get; set; }

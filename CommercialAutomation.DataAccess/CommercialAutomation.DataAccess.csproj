@@ -86,6 +86,10 @@
     <Compile Include="Migrations\202107191815189_mig_hour.designer.cs">
       <DependentUpon>202107191815189_mig_hour.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107231730405_mig_productdescription.cs" />
+    <Compile Include="Migrations\202107231730405_mig_productdescription.designer.cs">
+      <DependentUpon>202107231730405_mig_productdescription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -101,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107191815189_mig_hour.resx">
       <DependentUpon>202107191815189_mig_hour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107231730405_mig_productdescription.resx">
+      <DependentUpon>202107231730405_mig_productdescription.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

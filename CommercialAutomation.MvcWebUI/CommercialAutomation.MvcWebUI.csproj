@@ -2915,6 +2915,7 @@
     <Content Include="Templates\web3\images\Thumbs.db" />
     <Content Include="Templates\web3\js\js" />
     <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Product\ProductDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

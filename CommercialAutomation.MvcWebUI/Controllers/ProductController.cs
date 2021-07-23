@@ -1,5 +1,6 @@
 ﻿using CommercialAutomation.Business.Abstract;
 using CommercialAutomation.Business.Concrete;
+using CommercialAutomation.DataAccess.Concrete;
 using CommercialAutomation.DataAccess.Concrete.EntityFramework;
 using CommercialAutomation.Entities.Concrete;
 using System;
@@ -17,11 +18,13 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         ProductManager productManager = new ProductManager(new EfProductDal());
         IProductService _productService;
         ICategoryService _categoryService;
+        Context _context;
 
-        public ProductController(IProductService productService, ICategoryService categoryService)
+        public ProductController(IProductService productService, ICategoryService categoryService, Context context)
         {
             _productService = productService;
             _categoryService = categoryService;
+            _context = context;
         }
 
         public ActionResult Index()
@@ -92,6 +95,14 @@ namespace CommercialAutomation.MvcWebUI.Controllers
 
             productManager.Update(result);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult ProductDetail()
+        {
+            var result = productManager.GetAll().Where(x => x.ProductId == 1).ToList();
+            var result1 = _context.Products.Sum(x => x.SalePrice) * 25 / 100;
+            ViewBag.result1 = result1;
+            return View(result);
         }
 
         public ActionResult ProductList()
