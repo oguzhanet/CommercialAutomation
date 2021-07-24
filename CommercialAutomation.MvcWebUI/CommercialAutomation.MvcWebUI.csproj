@@ -2916,6 +2916,7 @@
     <Content Include="Templates\web3\js\js" />
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Product\ProductDetail.cshtml" />
+    <Content Include="Views\Statistics\EasyTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

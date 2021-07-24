@@ -63,5 +63,10 @@ namespace CommercialAutomation.MvcWebUI.Controllers
 
             return View();
         }
+
+        public ActionResult EasyTable()
+        {
+            return View();
+        }
     }
 }
