@@ -7,43 +7,136 @@
 
 @{ string status = "";}
 @{ string statusButton = "";}
-
+<br />
 <a href="/Category/AddCategory/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Kategori Ekle</a>
-<table class="table table-bordered">
-    <tr style="background-color:deepskyblue">
-        <th>Id</th>
-        <th>Kategori Adı</th>
-        <th>Durum</th>
-        <th>Aktif &ndash; Pasif</th>
-        <th>Güncelle</th>
-    </tr>
+@*<table class="table table-bordered">
+        <tr style="background-color:deepskyblue">
+            <th>Id</th>
+            <th>Kategori Adı</th>
+            <th>Durum</th>
+            <th>Aktif &ndash; Pasif</th>
+            <th>Güncelle</th>
+        </tr>
 
-    @foreach (var item in Model)
-    {
-        if (item.CategoryStatus == true)
+        @foreach (var item in Model)
         {
-            status = "Pasif Yap";
+            if (item.CategoryStatus == true)
+            {
+                status = "Pasif Yap";
+            }
+            if (item.CategoryStatus == false)
+            {
+                status = "Aktif Yap";
+            }
+            if (item.CategoryStatus == true)
+            {
+                statusButton = "btn btn-danger";
+            }
+            if (item.CategoryStatus == false)
+            {
+                statusButton = "btn btn-warning";
+            }
+
+            <tr>
+                <th>@item.CategoryId</th>
+                <td>@item.CategoryName</td>
+                <td>@item.CategoryStatus</td>
+                <td><a href="/Category/DeleteCategory/@item.CategoryId" class="@statusButton">@status</a></td>
+                <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
+            </tr>
         }
-        if (item.CategoryStatus == false)
-        {
-            status = "Aktif Yap";
-        }
-        if (item.CategoryStatus == true)
-        {
-            statusButton = "btn btn-danger";
-        }
-        if (item.CategoryStatus == false)
-        {
-            statusButton = "btn btn-warning";
-        }
+    </table>*@
+
+<table id="example" class="table is-striped">
+
+    <thead>
 
         <tr>
-            <th>@item.CategoryId</th>
-            <td>@item.CategoryName</td>
-            <td>@item.CategoryStatus</td>
-            <td><a href="/Category/DeleteCategory/@item.CategoryId" class="@statusButton">@status</a></td>
-            <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
+
+            <th>Id</th>
+            <th>Kategori Adı</th>
+            <th>Durum</th>
+            <th>Aktif &ndash; Pasif</th>
+            <th>Güncelle</th>
+
         </tr>
-    }
+
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.CategoryStatus == true)
+            {
+                status = "Pasif Yap";
+            }
+            if (item.CategoryStatus == false)
+            {
+                status = "Aktif Yap";
+            }
+            if (item.CategoryStatus == true)
+            {
+                statusButton = "btn btn-danger";
+            }
+            if (item.CategoryStatus == false)
+            {
+                statusButton = "btn btn-warning";
+            }
+            <tr>
+
+                <th>@item.CategoryId</th>
+                <td>@item.CategoryName</td>
+                <td>@item.CategoryStatus</td>
+                <td><a href="/Category/DeleteCategory/@item.CategoryId" class="@statusButton">@status</a></td>
+                <td><a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
+
+            </tr>
+        }
+    </tbody>
+
 </table>
+<br />
+<br />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bulma.min.css">
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bulma.min.js"></script>
+
+
+
+
+@*<script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json",
+                }
+            });
+        });
+    </script>*@
+
+@*<script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "language": {
+                    "scrollX": true,
+                    "lengthMenu": "Sayfadaki veri _MENU_ sayısını belirleyiniz",
+                    "zeroRecords": "Nothing found - sorry",
+                    "info": "_PAGES_ sayfadan _PAGE_. sayfa gösteriliyor",
+                    "search": "Arama:",
+                    "paginate": {
+                        "first": "İlk",
+                        "last": "Önceki",
+                        "next": "Sonraki",
+                        "previous": "Önceki"
+                    },
+                    "infoEmpty": "No records available",
+                    "infoFiltered": "(filtered from _MAX_ total records)"
+                }
+            });
+        });
+    </script>*@
 
