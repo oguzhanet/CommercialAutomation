@@ -68,5 +68,11 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             categoryManager.Update(result);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Transaction()
+        {
+            var result = categoryManager.GetAll();
+            return View(result);
+        }
     }
 }

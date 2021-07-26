@@ -2918,6 +2918,7 @@
     <Content Include="Views\Product\ProductDetail.cshtml" />
     <Content Include="Views\Statistics\EasyTable.cshtml" />
     <Content Include="Views\SaleMovement\Transaction.cshtml" />
+    <Content Include="Views\Category\Transaction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
