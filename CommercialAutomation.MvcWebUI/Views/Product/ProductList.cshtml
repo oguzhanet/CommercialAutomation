@@ -85,6 +85,9 @@
 
     </table>
 
+    <br />
+    <br />
+
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
@@ -116,9 +119,9 @@
         $(document).ready(function () {
 
             var table = $('#example').DataTable({
-                
+
                 lengthChange: false,
-             
+
                 buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis'],
 
                 "language": {
@@ -138,7 +141,7 @@
                     "infoFiltered": "(filtered from _MAX_ total records)"
                 }
             });
-         
+
             table.buttons().container()
 
                 .appendTo('#example_wrapper .col-md-6:eq(0)');
