@@ -118,8 +118,25 @@
             var table = $('#example').DataTable({
                 
                 lengthChange: false,
-                
-                buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis']
+             
+                buttons: ['copy', 'excel', 'csv', 'pdf', 'colvis'],
+
+                "language": {
+                    "scrollX": true,
+                    "lengthMenu": "Sayfadaki veri _MENU_ sayısını belirleyiniz",
+                    "zeroRecords": "Nothing found - sorry",
+                    "info": "_PAGES_ sayfadan _PAGE_. sayfa gösteriliyor",
+                    "search": "Arama:",
+                    "paginate": {
+                        "first": "İlk",
+                        "last": "Önceki",
+                        "next": "Sonraki",
+                        "previous": "Önceki"
+                    },
+
+                    "infoEmpty": "No records available",
+                    "infoFiltered": "(filtered from _MAX_ total records)"
+                }
             });
          
             table.buttons().container()
@@ -132,6 +149,3 @@
 </body>
 
 </html>
-
-
-

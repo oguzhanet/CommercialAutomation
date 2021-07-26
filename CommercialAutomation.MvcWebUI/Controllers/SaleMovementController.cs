@@ -118,5 +118,11 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             var result = _saleMovementService.GetAllBySaleId(id);
             return View(result);
         }
+
+        public ActionResult Transaction()
+        {
+            var result = saleMovementManager.GetAll();
+            return View(result);
+        }
     }
 }

@@ -1,0 +1,170 @@
+﻿@using CommercialAutomation.Entities.Concrete
+@model List<SaleMovement>
+@{
+    ViewBag.Title = "Transaction";
+    Layout = null;
+}
+
+<link href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" rel=" stylesheet" />
+<link href="//cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" rel=" stylesheet" />
+
+<br />
+<table id="example" class="display, container" width="100%" cellspacing="0">
+    <thead>
+        <tr style="background-color:deepskyblue">
+            <th>Id</th>
+            <th>Ürün</th>
+            <th>Müşteri</th>
+            <th>Personel</th>
+            <th>Adet</th>
+            <th>Birim Fiyat</th>
+            <th>Toplam Fiyat</th>
+            <th>Tarih</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.SaleMovementId</th>
+                <td>@item.Product.ProductName</td>
+                <td>@item.Customer.CustomerName @item.Customer.CustomerLastName</td>
+                <td>@item.Employee.EmployeeName @item.Employee.EmployeeLastName</td>
+                <td>@item.Piece</td>
+                <td>@item.UnitPirce</td>
+                <td>@item.SumPrice</td>
+                <td>@item.SaleDate</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+<script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.html5.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.print.min.js"></script>
+<script src="//cdn.datatables.net/buttons/1.2.4/js/buttons.colVis.min.js"></script>
+
+<script>
+
+    $.fn.dataTable.ext.search.push(
+        function (settings, data, dataIndex) {
+            var min = parseInt($('#min').val(), 10);
+            var max = parseInt($('#max').val(), 10);
+            var age = parseFloat(data[3]) || 0; // use data for the age column
+            if ((isNaN(min) && isNaN(max)) ||
+                (isNaN(min) && age <= max) ||
+                (min <= age && isNaN(max)) ||
+                (min <= age && age <= max)) {
+                return true;
+            }
+            return false;
+        }
+    );
+
+    $(document).ready(function () {
+        $('#min, #max').keyup(function () {
+            var oTable = $('#example').dataTable();
+            $('#example').dataTable().fnDraw();
+        });
+
+        $('#example').DataTable({
+            dom: 'Bfrtip',
+            //buttons: [ //=Standart Buttonlar
+            //    'copyHtml5',
+            //    'excelHtml5',
+            //    'csvHtml5',
+            //    'pdfHtml5',
+            //    'print'
+            //]
+
+            lengthMenu: [
+                [10, 25, 50, -1],
+                ['10 satır', '25 satır', '50 satır', 'Tamamı']
+            ],
+            buttons: [
+                {
+                    extend: 'pageLength',
+                    text: '<i class="fa fa-arrows-v text-primary"> </i> Satır',
+                    titleAttr: 'Sayfada Gösterilecek Satir Sayisi',
+
+                },
+                {
+                    extend: 'copyHtml5',
+                    text: '<i class="fa fa-files-o text-info"> </i> Kopyala',
+                    titleAttr: 'Kopyala',
+                    exportOptions: {
+                        columns: [0, ':visible']
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<i class="fa fa-file-excel-o text-success"> Excel</i>',
+                    titleAttr: 'Excele Aktar',
+                    title: 'Veriler',// Save File Name
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    customize: function (xlsx) { //İkinsi Sütunu Bold Yapar
+                        var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                        $('row c[r^="C"]', sheet).attr('s', '2');
+                    }
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<i class="fa fa-file-text-o text-success"> CSV</i>',
+                    titleAttr: 'CSV olarak kaydet',
+                    title: 'Veriler',// Save File Name
+                    exportOptions: {
+                        columns: ':visible'
+                    },
+                    customize: function (xlsx) { //İkinsi Sütunu Bold Yapar
+                        var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                        $('row c[r^="C"]', sheet).attr('s', '2');
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<i class="fa fa-file-pdf-o text-danger"> PDF</i>',
+                    titleAttr: 'PDF-e Aktar',
+                    title: 'Veriler',// Save File Name
+
+                    exportOptions: {
+                        columns: ':visible' //columns: [ 0, 1, 2, 5 ] //= Columnları sabitlemek her halukarda görntülenmesini sağlamak için
+                    }
+
+                },
+                {
+                    extend: 'print',
+                    text: '<i class="fa fa-print"> Yazdır</i>',
+                    titleAttr: 'Yazdır',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'colvis',
+                    text: '<i class="fa fa-table"> Gizle</i>',
+                    titleAttr: 'Sütun Göster-Gizle'
+                },
+
+            ],
+            language: {
+                buttons: {
+                    copyTitle: 'Veriler Kopyalandı.',
+                    copyKeys: '... <i>ctrl</i> ou <i>\u2318</i> + <i>C</i> ---. <br><br> ---.',
+                    copySuccess: {
+                        _: ' %d Satır Kopyalandı.',
+                        1: '1 ligne copiée'
+                    }
+                }
+            }
+        });
+    });
+</script>
+
