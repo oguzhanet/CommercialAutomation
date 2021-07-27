@@ -1,4 +1,5 @@
 ﻿using CommercialAutomation.DataAccess.Concrete;
+using CommercialAutomation.MvcWebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,7 +67,14 @@ namespace CommercialAutomation.MvcWebUI.Controllers
 
         public ActionResult EasyTable()
         {
-            return View();
+            var result = from x in _context.Customers
+                         group x by x.CustomerCity into a
+                         select new StatisticsGroup
+                         {
+                             City = a.Key,
+                             Count = a.Count()
+                         };
+            return View(result.ToList());
         }
     }
 }
