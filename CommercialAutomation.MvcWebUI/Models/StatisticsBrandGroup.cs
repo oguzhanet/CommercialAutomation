@@ -5,9 +5,9 @@ using System.Web;
 
 namespace CommercialAutomation.MvcWebUI.Models
 {
-    public class StatisticsPartialGroup
+    public class StatisticsBrandGroup
     {
-        public string Department { get; set; }
+        public string Brand { get; set; }
         public int Count { get; set; }
     }
 }

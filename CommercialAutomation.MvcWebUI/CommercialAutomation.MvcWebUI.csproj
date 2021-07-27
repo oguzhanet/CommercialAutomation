@@ -151,6 +151,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\StatisticsBrandGroup.cs" />
+    <Compile Include="Models\StatisticsCategoryGroup.cs" />
     <Compile Include="Models\StatisticsGroup.cs" />
     <Compile Include="Models\StatisticsPartialGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2922,6 +2924,8 @@
     <Content Include="Views\SaleMovement\Transaction.cshtml" />
     <Content Include="Views\Category\Transaction.cshtml" />
     <Content Include="Views\Statistics\EasyTablePartial.cshtml" />
+    <Content Include="Views\Statistics\BrandPartial.cshtml" />
+    <Content Include="Views\Statistics\CategoryPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

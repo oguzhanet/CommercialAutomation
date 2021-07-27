@@ -1,19 +1,19 @@
-﻿@model IEnumerable<CommercialAutomation.MvcWebUI.Models.StatisticsPartialGroup>
+﻿@model IEnumerable<CommercialAutomation.MvcWebUI.Models.StatisticsCategoryGroup>
 
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Departman Personel Sayıları</h3>
+        <h3 class="card-title">Ürün Kategori Sayıları</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
-        <table class="table table-sm">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th style="width: 10px">#</th>
-                    <th>Departman</th>
-                    <th>Progress Bar</th>
-                    <th style="width: 40px">Adet</th>
+                    <th>Task</th>
+                    <th>Progress</th>
+                    <th style="width: 40px">Label</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +22,7 @@
                 {
                     <tr>
                         <td>@{number++;} @number</td>
-                        <td>@item.Department</td>
+                        <td>@item.Category</td>
                         <td>
                             @if (item.Count == 1)
                             {

@@ -1,17 +1,17 @@
-﻿@model IEnumerable<CommercialAutomation.MvcWebUI.Models.StatisticsPartialGroup>
+﻿@model IEnumerable<CommercialAutomation.MvcWebUI.Models.StatisticsBrandGroup>
 
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Departman Personel Sayıları</h3>
+        <h3 class="card-title">Ürün Marka Tablosu</h3>
     </div>
     <!-- /.card-header -->
-    <div class="card-body p-0">
-        <table class="table table-sm">
+    <div class="card-body">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th style="width: 10px">#</th>
-                    <th>Departman</th>
+                    <th>Marka</th>
                     <th>Progress Bar</th>
                     <th style="width: 40px">Adet</th>
                 </tr>
@@ -22,7 +22,7 @@
                 {
                     <tr>
                         <td>@{number++;} @number</td>
-                        <td>@item.Department</td>
+                        <td>@item.Brand</td>
                         <td>
                             @if (item.Count == 1)
                             {
@@ -62,4 +62,5 @@
         </table>
     </div>
     <!-- /.card-body -->
+
 </div>

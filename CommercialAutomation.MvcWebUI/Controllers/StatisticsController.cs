@@ -80,10 +80,34 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         public PartialViewResult EasyTablePartial()
         {
             var result = from x in _context.Employees
-                         group x by x.DepartmentId into a
+                         group x by x.Department.DepartmentName into a
                          select new StatisticsPartialGroup
                          {
-                             DepartmentId = a.Key,
+                             Department = a.Key,
+                             Count = a.Count()
+                         };
+            return PartialView(result.ToList());
+        }
+
+        public PartialViewResult BrandPartial()
+        {
+            var result = from x in _context.Products
+                         group x by x.Brand into a
+                         select new StatisticsBrandGroup
+                         {
+                             Brand = a.Key,
+                             Count=a.Count()
+                         };
+            return PartialView(result.ToList());
+        }
+
+        public PartialViewResult CategoryPartial()
+        {
+            var result = from x in _context.Products
+                         group x by x.Category.CategoryName into a
+                         select new StatisticsCategoryGroup
+                         {
+                             Category = a.Key,
                              Count = a.Count()
                          };
             return PartialView(result.ToList());
