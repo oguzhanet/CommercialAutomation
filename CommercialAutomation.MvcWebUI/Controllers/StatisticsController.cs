@@ -50,7 +50,7 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             var result10 = _context.Products.GroupBy(x => x.Brand).OrderByDescending(y => y.Count()).Select(z => z.Key).FirstOrDefault();
             ViewBag.result10 = result10;
 
-            var result11 = _context.Products.Where(x => x.ProductId == (_context.SaleMovements.GroupBy(y => y.ProductId).OrderByDescending(z => z.Count()).Select(a => a.Key).FirstOrDefault())).Select(s=>s.ProductName).FirstOrDefault();
+            var result11 = _context.Products.Where(x => x.ProductId == (_context.SaleMovements.GroupBy(y => y.ProductId).OrderByDescending(z => z.Count()).Select(a => a.Key).FirstOrDefault())).Select(s => s.ProductName).FirstOrDefault();
             ViewBag.result11 = result11;
 
             var result12 = _context.SaleMovements.Sum(x => x.SumPrice).ToString();
@@ -75,6 +75,18 @@ namespace CommercialAutomation.MvcWebUI.Controllers
                              Count = a.Count()
                          };
             return View(result.ToList());
+        }
+
+        public PartialViewResult EasyTablePartial()
+        {
+            var result = from x in _context.Employees
+                         group x by x.DepartmentId into a
+                         select new StatisticsPartialGroup
+                         {
+                             DepartmentId = a.Key,
+                             Count = a.Count()
+                         };
+            return PartialView(result.ToList());
         }
     }
 }
