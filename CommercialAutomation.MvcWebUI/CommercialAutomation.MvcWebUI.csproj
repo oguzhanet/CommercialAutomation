@@ -145,6 +145,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\InvoiceItemController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SaleMovementController.cs" />
     <Compile Include="Controllers\StatisticsController.cs" />
@@ -2422,6 +2423,15 @@
     <Content Include="Templates\web3\typo.html" />
     <Content Include="Templates\web3\validation.html" />
     <Content Include="Templates\web3\w3layouts-License.txt" />
+    <Content Include="Templates\weblogin\css\font-awesome.css" />
+    <Content Include="Templates\weblogin\css\popup-box.css" />
+    <Content Include="Templates\weblogin\css\style.css" />
+    <Content Include="Templates\weblogin\fonts\fontawesome-webfont.svg" />
+    <Content Include="Templates\weblogin\images\bg.jpg" />
+    <Content Include="Templates\weblogin\index.html" />
+    <Content Include="Templates\weblogin\js\jquery-2.1.4.min.js" />
+    <Content Include="Templates\weblogin\js\jquery.magnific-popup.js" />
+    <Content Include="Templates\weblogin\w3layouts-License.txt" />
     <Content Include="Templates\Web\dist\401.html" />
     <Content Include="Templates\Web\dist\404.html" />
     <Content Include="Templates\Web\dist\500.html" />
@@ -2928,6 +2938,13 @@
     <Content Include="Views\Statistics\BrandPartial.cshtml" />
     <Content Include="Views\Statistics\CategoryPartial.cshtml" />
     <Content Include="Views\ToDoList\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Templates\weblogin\fonts\fontawesome-webfont.eot" />
+    <Content Include="Templates\weblogin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Templates\weblogin\fonts\fontawesome-webfont.woff" />
+    <Content Include="Templates\weblogin\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Templates\weblogin\fonts\FontAwesome.otf" />
+    <Content Include="Views\Login\CustomerRegisterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

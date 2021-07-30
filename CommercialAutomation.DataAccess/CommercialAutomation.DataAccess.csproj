@@ -100,6 +100,14 @@
     <Compile Include="Migrations\202107291818533_mig_ToDoList.designer.cs">
       <DependentUpon>202107291818533_mig_ToDoList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107301647428_mig_password.cs" />
+    <Compile Include="Migrations\202107301647428_mig_password.designer.cs">
+      <DependentUpon>202107301647428_mig_password.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107301720256_mig_role.cs" />
+    <Compile Include="Migrations\202107301720256_mig_role.designer.cs">
+      <DependentUpon>202107301720256_mig_role.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -124,6 +132,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107291818533_mig_ToDoList.resx">
       <DependentUpon>202107291818533_mig_ToDoList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107301647428_mig_password.resx">
+      <DependentUpon>202107301647428_mig_password.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107301720256_mig_role.resx">
+      <DependentUpon>202107301720256_mig_role.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

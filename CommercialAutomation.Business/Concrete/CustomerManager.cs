@@ -20,6 +20,7 @@ namespace CommercialAutomation.Business.Concrete
 
         public void Add(Customer customer)
         {
+            CheckIfCustomerExists(customer);
             _customerDal.Add(customer);
         }
 
@@ -38,9 +39,22 @@ namespace CommercialAutomation.Business.Concrete
             return _customerDal.Get(x => x.CustomerId == id);
         }
 
+        public Customer GetBy(string mail)
+        {
+            return _customerDal.Get(x => x.CustomerMail == mail);
+        }
+
         public void Update(Customer customer)
         {
             _customerDal.Update(customer);
+        }
+
+        private void CheckIfCustomerExists(Customer customer)
+        {
+            if (_customerDal.Get(x => x.CustomerMail == customer.CustomerMail) != null)
+            {
+                throw new Exception("Bu kullanıcı daha önce kayıt olmuştur.");
+            }
         }
     }
 }
