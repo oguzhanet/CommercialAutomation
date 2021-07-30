@@ -22,7 +22,7 @@ namespace CommercialAutomation.MvcWebUI.Controllers
 
         public ActionResult Index()
         {
-            var result = toDoListManager.GetAll();
+            var result = toDoListManager.GetAll().OrderByDescending(x=>x.ToDoListId).ToList();
 
             var result1 = _context.SaleMovements.Count(x => x.SaleDate == DateTime.Today).ToString();
             if (result1 !=null)
