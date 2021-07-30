@@ -61,6 +61,7 @@
     <Compile Include="Concrete\InvoiceItem.cs" />
     <Compile Include="Concrete\Product.cs" />
     <Compile Include="Concrete\SaleMovement.cs" />
+    <Compile Include="Concrete\ToDoList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -16,6 +16,12 @@ namespace CommercialAutomation.Entities.Concrete
         public string EmployeeName { get; set; }
         [StringLength(50)]
         public string EmployeeLastName { get; set; }
+        [StringLength(100)]
+        public string EmployeeAbout { get; set; }
+        [StringLength(50)]
+        public string EmployeeAddress { get; set; }
+        [StringLength(20)]
+        public string EmployeePhone { get; set; }
         [StringLength(500)]
         public string EmployeeImage { get; set; }
         public bool EmployeeStatus { get; set; }

@@ -38,6 +38,9 @@ namespace CommercialAutomation.Business.DependencyResolvers.Ninject
 
             Bind<IInvoiceItemService>().To<InvoiceItemManager>().InSingletonScope();
             Bind<IInvoiceItemDal>().To<EfInvoiceItemDal>().InSingletonScope();
+
+            Bind<IToDoListService>().To<ToDoListManager>().InSingletonScope();
+            Bind<IToDoListDal>().To<EfToDoListDal>().InSingletonScope();
         }
     }
 }

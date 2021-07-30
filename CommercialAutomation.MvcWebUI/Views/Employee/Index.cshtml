@@ -5,63 +5,15 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@*@{ string status = "";}
-    @{ string statusButton = "";}
-
-    <a href="/Employee/Add/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Personel Ekle</a>
-    <table class="table table-bordered">
-        <tr style="background-color:deepskyblue">
-            <th>Id</th>
-            <th>Personel Adı</th>
-            <th>Personel Soyadı</th>
-            <th>Departman</th>
-            <th>Görsel</th>
-            <th>Durum</th>
-            <th>Aktif &ndash; Pasif</th>
-            <th>Güncelle</th>
-            <th>Satışlar</th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            if (item.EmployeeStatus == true)
-            {
-                status = "Pasif Yap";
-            }
-            if (item.EmployeeStatus == false)
-            {
-                status = "Aktif Yap";
-            }
-            if (item.EmployeeStatus == true)
-            {
-                statusButton = "btn btn-danger";
-            }
-            if (item.EmployeeStatus == false)
-            {
-                statusButton = "btn btn-warning";
-            }
-
-            <tr>
-                <th>@item.EmployeeId</th>
-                <td>@item.EmployeeName</td>
-                <td>@item.EmployeeLastName</td>
-                <td>@item.Department.DepartmentName</td>
-                <td>@item.EmployeeImage</td>
-                <td>@item.EmployeeStatus</td>
-                <td><a href="/Employee/Delete/@item.EmployeeId" class="@statusButton">@status</a></td>
-                <td><a href="/Employee/Update/@item.EmployeeId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
-                <td><a href="/Department/DepartmentSaleMovement/@item.EmployeeId" class="btn btn-default" style="background-color:#0094ff; color:white;">Satış Geçmişi</a></td>
-            </tr>
-        }
-    </table>*@
-
+@{ string status = "";}
+@{ string statusButton = "";}
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Contacts</title>
+    <title>Personel Sayfası</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -83,7 +35,7 @@
                     <div class="col-sm-6">
                         <h1>Personel Sayfası</h1>
                     </div>
-
+                    <a href="/Employee/Add/" class="btn btn-sm bg-gradient-secondary" style="margin-left:500px">Yeni Personel Ekle</a>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
@@ -96,6 +48,22 @@
                     <div class="row d-flex align-items-stretch">
                         @foreach (var item in Model)
                         {
+                            if (item.EmployeeStatus == true)
+                            {
+                                status = "Pasif Yap";
+                            }
+                            if (item.EmployeeStatus == false)
+                            {
+                                status = "Aktif Yap";
+                            }
+                            if (item.EmployeeStatus == true)
+                            {
+                                statusButton = "btn btn-sm bg-gradient-danger";
+                            }
+                            if (item.EmployeeStatus == false)
+                            {
+                                statusButton = "btn btn-sm bg-gradient-warning";
+                            }
                             <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
                                 <div class="card bg-light">
                                     <div class="card-header text-muted border-bottom-0">
@@ -105,19 +73,30 @@
                                         <div class="row">
                                             <div class="col-7">
                                                 <h2 class="lead"><b>@item.EmployeeName @item.EmployeeLastName</b></h2>
-                                                <p class="text-muted text-sm"><b>About: </b> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                                                <p class="text-muted text-sm"><b>Hakkında: </b> @item.EmployeeAbout </p>
                                                 <ul class="ml-4 mb-0 fa-ul text-muted">
-                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Address: Demo Street 123, Demo City 04312, NJ</li>
-                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Phone #: + 800 - 12 12 23 52</li>
+                                                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Adres: @item.EmployeeAddress</li>
+                                                    <li style="margin-top:8px" class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Telefon: @item.EmployeePhone</li>
                                                 </ul>
                                             </div>
                                             <div class="col-5 text-center">
-                                                <img src="~/Templates/AdminLTE-3.0.4/dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                                                @if (item.EmployeeImage != null)
+                                                {
+                                                    <img src="@item.EmployeeImage" style="width:130px; height:130px" alt="" class="img-circle img-fluid">
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Templates/AdminLTE-3.0.4/dist/img/user1-128x128.jpg" alt="" class="img-circle img-fluid">
+                                                }
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-footer">
                                         <div class="text-right">
+                                            <a href="/Employee/Delete/@item.EmployeeId" class="@statusButton">
+                                                <i class="fas fa-delicious"></i> @status
+                                            </a>
                                             <a href="/Employee/Update/@item.EmployeeId" class="btn btn-sm bg-teal">
                                                 <i class="fas fa-arrow-circle-up"></i> Güncelle
                                             </a>
@@ -133,18 +112,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                    <nav aria-label="Contacts Page Navigation">
-                        <ul class="pagination justify-content-center m-0">
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item"><a class="page-link" href="#">6</a></li>
-                            <li class="page-item"><a class="page-link" href="#">7</a></li>
-                            <li class="page-item"><a class="page-link" href="#">8</a></li>
-                        </ul>
-                    </nav>
+
                 </div>
                 <!-- /.card-footer -->
             </div>

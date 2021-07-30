@@ -82,6 +82,7 @@
     <Compile Include="Abstract\IInvoiceService.cs" />
     <Compile Include="Abstract\IProductService.cs" />
     <Compile Include="Abstract\ISaleMovementService.cs" />
+    <Compile Include="Abstract\IToDoListService.cs" />
     <Compile Include="Concrete\AdminManager.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
     <Compile Include="Concrete\CustomerManager.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Concrete\InvoiceManager.cs" />
     <Compile Include="Concrete\ProductManager.cs" />
     <Compile Include="Concrete\SaleMovementManager.cs" />
+    <Compile Include="Concrete\ToDoListManager.cs" />
     <Compile Include="DependencyResolvers\Ninject\NinjectBusinessModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
