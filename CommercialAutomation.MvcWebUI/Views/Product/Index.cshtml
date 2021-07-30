@@ -51,7 +51,9 @@
             <td>@item.UnitsInStock</td>
             <td>@item.PurchasePrice</td>
             <td>@item.SalePrice</td>
-            <td>@item.ProductImage</td>
+            <td>
+                <img src="@item.ProductImage" style="width:90px; height:70px"/>
+            </td>
             <td>@item.ProductStatus</td>
             <td><a href="/Product/Delete/@item.ProductId" class="@statusButton">@status</a></td>
             <td><a href="/Product/Update/@item.ProductId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
