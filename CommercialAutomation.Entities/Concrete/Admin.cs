@@ -14,7 +14,7 @@ namespace CommercialAutomation.Entities.Concrete
         public int AdminId { get; set; }
         [StringLength(50)]
         public string Mail { get; set; }
-        [StringLength(16)]
+        [StringLength(1000)]
         public string Password { get; set; }
         [StringLength(1)]
         public string Role { get; set; }

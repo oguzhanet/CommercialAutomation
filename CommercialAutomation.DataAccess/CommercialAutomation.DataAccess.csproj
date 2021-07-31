@@ -108,6 +108,10 @@
     <Compile Include="Migrations\202107301720256_mig_role.designer.cs">
       <DependentUpon>202107301720256_mig_role.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107311154382_mig_hash.cs" />
+    <Compile Include="Migrations\202107311154382_mig_hash.designer.cs">
+      <DependentUpon>202107311154382_mig_hash.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -138,6 +142,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107301720256_mig_role.resx">
       <DependentUpon>202107301720256_mig_role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107311154382_mig_hash.resx">
+      <DependentUpon>202107311154382_mig_hash.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
