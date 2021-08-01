@@ -12,11 +12,13 @@
         <th>Seri ve Sıra No</th>
         <th>Vergi Dairesi</th>
         <th>Tarih ~ Saat</th>
-        <th>Toplam</th>
+        <th>₺ Toplam</th>
         <th>Teslim Eden</th>
         <th>Teslim Alan</th>
         <th>Güncelle</th>
         <th>Detaylar</th>
+        <th>Detay</th>
+        <th>Kalem</th>
     </tr>
 
     @foreach (var item in Model)
@@ -31,6 +33,37 @@
             <td>@item.Receiver</td>
             <td><a href="/Invoice/Update/@item.InvoiceId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
             <td><a href="/Invoice/InvoiceDetail/@item.InvoiceId" class="btn btn-default" style="background-color:#0094ff; color:white;">Detaylar</a></td>
+            <td><a href="/Invoice/InvoiceDetail/@item.InvoiceId" class="btn btn-default" style="background-color:#0094ff; color:white;">Detaylar</a></td>
+            <td><a href="/Invoice/InvoiceDetail/@item.InvoiceId" data-toggle="modal" data-target="#Modal1" class="btn btn-default" style="background-color:#0094ff; color:white;">Detaylar</a></td>
         </tr>
     }
 </table>
+
+@*<br />
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Pencere</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Ekran</h3>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Seri ve Sıra No</th>
+                        <th>Toplam Tutar</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.InvoiceSerialNumber @item.InvoiceSequenceNumber</td>
+                            <td>@item.SumPrice </td>
+                        </tr>
+                    }
+                </table>
+                <button class="btn btn-danger" data-dismiss="modal">Tamam</button>
+            </div>
+        </div>
+    </div>
+</div>*@
