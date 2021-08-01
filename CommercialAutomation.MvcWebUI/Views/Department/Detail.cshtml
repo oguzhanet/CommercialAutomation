@@ -14,9 +14,7 @@
 <table class="table table-striped">
     <tr style="background-color:deepskyblue">
         <th>Id</th>
-        <th>Personel Adı</th>
-        <th>Personel Soyadı</th>
-        <th>Personel Resmi</th>
+        <th>Personel</th>
         <th>Satış Detayları</th>
     </tr>
 
@@ -24,9 +22,7 @@
     {
         <tr>
             <th>@item.EmployeeId</th>
-            <td>@item.EmployeeName</td>
-            <td>@item.EmployeeLastName</td>
-            <td>@item.EmployeeImage</td>
+            <td>@item.EmployeeName @item.EmployeeLastName</td>
             <td><a href="/Department/DepartmentSaleMovement/@item.EmployeeId" class="btn btn-default" style="background-color:#0094ff; color:white;">Satış Detay</a></td>
         </tr>
     }

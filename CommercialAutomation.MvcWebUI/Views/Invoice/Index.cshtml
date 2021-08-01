@@ -9,8 +9,7 @@
 <table class="table table-striped">
     <tr style="background-color:deepskyblue">
         <th>Id</th>
-        <th>Sıra No</th>
-        <th>Seri No</th>
+        <th>Seri ve Sıra No</th>
         <th>Vergi Dairesi</th>
         <th>Tarih ~ Saat</th>
         <th>Toplam</th>
@@ -24,8 +23,7 @@
     {
         <tr>
             <th>@item.InvoiceId</th>
-            <td>@item.InvoiceSequenceNumber</td>
-            <td>@item.InvoiceSerialNumber</td>
+            <td>@item.InvoiceSerialNumber @item.InvoiceSequenceNumber</td>
             <td>@item.TaxAdministration</td>
             <td>@item.Date</td>
             <td>@item.SumPrice</td>
