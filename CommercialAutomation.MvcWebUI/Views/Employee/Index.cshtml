@@ -1,5 +1,7 @@
 ﻿@using CommercialAutomation.Entities.Concrete
-@model List<Employee>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Employee>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -112,7 +114,11 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-
+                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",new {page}),
+                   new PagedListRenderOptions { 
+                    LiElementClasses=new List<string>
+                    { "page-link"}
+                   })
                 </div>
                 <!-- /.card-footer -->
             </div>

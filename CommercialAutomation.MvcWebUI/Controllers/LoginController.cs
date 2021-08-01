@@ -79,5 +79,26 @@ namespace CommercialAutomation.MvcWebUI.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult AdminLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AdminLogin(Admin admin)
+        {
+            var adminInfo = _context.Admins.FirstOrDefault(x => x.Mail == admin.Mail && x.Password == admin.Password);
+
+            if (adminInfo !=null)
+            {
+                FormsAuthentication.SetAuthCookie(adminInfo.Mail, false);
+                Session["Mail"] = adminInfo.Mail;
+                return RedirectToAction("Index", "Category");
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }

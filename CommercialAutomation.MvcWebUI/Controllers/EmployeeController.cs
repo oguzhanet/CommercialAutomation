@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace CommercialAutomation.MvcWebUI.Controllers
 {
@@ -24,9 +26,9 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             _departmentService = departmentService;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
-            var result = employeeManager.GetAll();
+            var result = employeeManager.GetAll().ToPagedList(page,6);
             return View(result);
         }
 
