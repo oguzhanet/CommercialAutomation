@@ -1,0 +1,24 @@
+﻿@using CommercialAutomation.Entities.Concrete
+@model List<SaleMovement>
+@{
+    ViewBag.Title = "CustomerOrder";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+@*<a href="/Customer/Add/" class="btn btn-default" style="background-color:springgreen; margin-block-end:15px;">Yeni Müşteri Ekle</a>*@
+<table class="table table-bordered">
+    <tr style="background-color:springgreen">
+        <th><b>Ürün Adı</b></th>
+        <th><b>Fiyat</b></th>
+        <th><b>Tarih</b></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.Product.ProductName</th>
+            <th>@item.SumPrice</th>
+            <th>@Convert.ToDateTime(item.SaleDate).ToString("dd/MM/yyyy")</th>
+        </tr>
+    }
+</table>

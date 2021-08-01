@@ -4826,6 +4826,8 @@
     <Content Include="Templates\panel\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Shared\_CustomerLayout.cshtml" />
     <Content Include="Views\CustomerPanel\Index.cshtml" />
+    <Content Include="Views\CustomerPanel\NameLayout.cshtml" />
+    <Content Include="Views\CustomerPanel\CustomerOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

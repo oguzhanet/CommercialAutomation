@@ -22,6 +22,8 @@ namespace CommercialAutomation.Entities.Concrete
         public string CustomerMail { get; set; }
         [StringLength(15)]
         public string CustomerPhone { get; set; }
+        [StringLength(250)]
+        public string CustomerImage { get; set; }
         [StringLength(1000)]
         public string CustomerPassword{ get; set; }
         [StringLength(1)]

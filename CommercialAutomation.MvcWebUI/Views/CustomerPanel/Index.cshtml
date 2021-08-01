@@ -1,8 +1,276 @@
-﻿
+﻿@model CommercialAutomation.Entities.Concrete.Customer
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
-<h2>Index</h2>
 
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Kullanıcı Paneli</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    @*<link rel="stylesheet" href="~/Templates/AdminLTE-3.0.4/dist/css/adminlte.min.css">*@
+
+    <!-- Google Font: Source Sans Pro -->
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <section class="content-header">
+
+        <div class="container-fluid">
+
+            <div class="row mb-2">
+
+                <div class="col-sm-6">
+
+                    <h1>Profilim</h1>
+
+                </div>
+
+            </div>
+
+        </div><!-- /.container-fluid -->
+
+    </section>
+
+    <!-- Main content -->
+
+    <section class="content">
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-md-3">
+
+                    <!-- Profile Image -->
+
+                    <div class="card card-primary card-outline">
+
+                        <div class="card-body box-profile">
+
+                            <div class="text-center">
+
+                                @if (@ViewBag.writerImage == null)
+                                {
+                                    <img style="width:170px; height:190px" class="profile-user-img img-fluid img-circle"
+                                         src="~/Templates/AdminLTE-3.0.4/dist/img/avatar04.png"
+                                         alt="User profile picture">
+                                }
+                                else
+                                {
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="@ViewBag.writerImage"
+                                     alt="User profile picture">
+                                }
+
+                            </div>
+
+                            <h3 class="profile-username text-center">@ViewBag.writerName</h3>
+
+                            <p class="text-muted text-center">Kullanıcı Paneli Üyesi</p>
+
+                            <ul class="list-group list-group-unbordered mb-3">
+
+                                <li class="list-group-item">
+
+                                    <b>Yazdığım İçerik Sayısı</b> <a class="float-right">@ViewBag.writerTitles</a>
+
+                                </li>
+
+                                <li class="list-group-item">
+
+                                    <b>Gelen Mesaj Sayısı</b> <a class="float-right">@ViewBag.writerMessage</a>
+
+                                </li>
+
+                            </ul>
+
+                            <a href="/WriterPanelMessage/Inbox/" class="btn btn-primary btn-block"><b>Gelen Kutusu</b></a>
+
+                        </div>
+
+                        <!-- /.card-body -->
+
+                    </div>
+
+                </div>
+
+                <!-- /.col -->
+
+                <div class="col-md-9">
+
+                    <div class="card">
+
+                        <div class="card-header p-2">
+
+                            <ul class="nav nav-pills">
+
+                                <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Ayarlar</a></li>
+
+                            </ul>
+
+                        </div><!-- /.card-header -->
+
+                        <div class="card-body">
+
+                            <div class="tab-content">
+
+                                <div class="active tab-pane" id="settings">
+
+                                    @using (Html.BeginForm("Index", "CustomerPanel", FormMethod.Post))
+
+                                    {
+
+                                        <form class="form-horizontal">
+
+                                            @Html.HiddenFor(x => x.CustomerId, new { @class = "form-control" })
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">İsim</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Soyisim</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.CustomerLastName, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Şehir</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Mail Adresi</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.CustomerMail, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Telefon</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.CustomerPhone, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <label for="inputName" class="col-sm-2 col-form-label">Fotoğraf Linki</label>
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.TextBoxFor(x => x.CustomerImage, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                @*<label for="inputName" class="col-sm-2 col-form-label">Şifre</label>*@
+
+                                                <div class="col-sm-10">
+
+                                                    @Html.HiddenFor(x => x.CustomerPassword, new { @class = "form-control" })
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+
+                                                <div class="offset-sm-2 col-sm-10">
+
+                                                    <button type="submit" class="btn btn-danger">Bilgileri Güncelle</button>
+
+                                                    <a href="/WriterPanel/WriterProfilePassword/" class="btn btn-default" style="background-color:#ff6a00; color:white; margin-left:425px">Şifre Güncelle</a>
+
+                                                </div>
+
+                                            </div>
+
+                                        </form>
+
+                                    }
+
+                                </div>
+
+                                <!-- /.tab-pane -->
+
+                            </div>
+
+                            <!-- /.tab-content -->
+
+                        </div>
+
+                        <!-- /.card-body -->
+
+                    </div>
+
+                    <!-- /.nav-tabs-custom -->
+
+                </div>
+
+                <!-- /.col -->
+
+            </div>
+
+            <!-- /.row -->
+
+        </div><!-- /.container-fluid -->
+
+    </section>
+
+
+</body>
+
+</html>
+<br />
+<br />
+<br />
