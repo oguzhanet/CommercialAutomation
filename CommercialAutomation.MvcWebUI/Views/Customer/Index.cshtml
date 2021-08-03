@@ -9,52 +9,130 @@
 @{ string statusButton = "";}
 
 <a href="/Customer/Add/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Müşteri Ekle</a>
-<table class="table table-bordered">
-    <tr style="background-color:deepskyblue">
-        <th>Id</th>
-        <th>Adı</th>
-        <th>Soyadı</th>
-        <th>Şehir</th>
-        <th>Mail</th>
-        <th>Telefon</th>
-        <th>Durum</th>
-        <th>Aktif &ndash; Pasif</th>
-        <th>Güncelle</th>
-        <th>Satın Alınan Ürünler</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        if (item.CustomerStatus == true)
-        {
-            status = "Pasif Yap";
-        }
-        if (item.CustomerStatus == false)
-        {
-            status = "Aktif Yap";
-        }
-        if (item.CustomerStatus == true)
-        {
-            statusButton = "btn btn-danger";
-        }
-        if (item.CustomerStatus == false)
-        {
-            statusButton = "btn btn-warning";
-        }
-
-        <tr>
-            <th>@item.CustomerId</th>
-            <td>@item.CustomerName</td>
-            <td>@item.CustomerLastName</td>
-            <td>@item.CustomerCity</td>
-            <td>@item.CustomerMail</td>
-            <td>@item.CustomerPhone</td>
-            <td>@item.CustomerStatus</td>
-            <td><a href="/Customer/Delete/@item.CustomerId" class="@statusButton">@status</a></td>
-            <td><a href="/Customer/Update/@item.CustomerId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
-            <td><a href="/Customer/CustomerReceive/@item.CustomerId" class="btn btn-default" style="background-color:#0094ff; color:white;">Satınalma Geçmişi</a></td>
+@*<table class="table table-bordered">
+        <tr style="background-color:deepskyblue">
+            <th>Id</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Şehir</th>
+            <th>Mail</th>
+            <th>Telefon</th>
+            <th>Durum</th>
+            <th>Aktif &ndash; Pasif</th>
+            <th>Güncelle</th>
+            <th>Satın Alınan Ürünler</th>
         </tr>
-    }
+
+        @foreach (var item in Model)
+        {
+            if (item.CustomerStatus == true)
+            {
+                status = "Pasif Yap";
+            }
+            if (item.CustomerStatus == false)
+            {
+                status = "Aktif Yap";
+            }
+            if (item.CustomerStatus == true)
+            {
+                statusButton = "btn btn-danger";
+            }
+            if (item.CustomerStatus == false)
+            {
+                statusButton = "btn btn-warning";
+            }
+
+            <tr>
+                <th>@item.CustomerId</th>
+                <td>@item.CustomerName</td>
+                <td>@item.CustomerLastName</td>
+                <td>@item.CustomerCity</td>
+                <td>@item.CustomerMail</td>
+                <td>@item.CustomerPhone</td>
+                <td>@item.CustomerStatus</td>
+                <td><a href="/Customer/Delete/@item.CustomerId" class="@statusButton">@status</a></td>
+                <td><a href="/Customer/Update/@item.CustomerId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
+                <td><a href="/Customer/CustomerReceive/@item.CustomerId" class="btn btn-default" style="background-color:#0094ff; color:white;">Satınalma Geçmişi</a></td>
+            </tr>
+        }
+    </table>*@
+
+
+<table id="example" class="table is-striped">
+
+    <thead>
+
+        <tr style="background-color:deepskyblue">
+            <th>Id</th>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Şehir</th>
+            <th>Mail</th>
+            <th>Telefon</th>
+            <th>Durum</th>
+            <th>Aktif &ndash; Pasif</th>
+            <th>Güncelle</th>
+            <th>Satın Alınan Ürünler</th>
+        </tr>
+
+
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.CustomerStatus == true)
+            {
+                status = "Pasif Yap";
+            }
+            if (item.CustomerStatus == false)
+            {
+                status = "Aktif Yap";
+            }
+            if (item.CustomerStatus == true)
+            {
+                statusButton = "btn btn-danger";
+            }
+            if (item.CustomerStatus == false)
+            {
+                statusButton = "btn btn-warning";
+            }
+
+            <tr>
+                <th>@item.CustomerId</th>
+                <td>@item.CustomerName</td>
+                <td>@item.CustomerLastName</td>
+                <td>@item.CustomerCity</td>
+                <td>@item.CustomerMail</td>
+                <td>@item.CustomerPhone</td>
+                <td>@item.CustomerStatus</td>
+                <td><a href="/Customer/Delete/@item.CustomerId" class="@statusButton">@status</a></td>
+                <td><a href="/Customer/Update/@item.CustomerId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
+                <td><a href="/Customer/CustomerReceive/@item.CustomerId" class="btn btn-default" style="background-color:#0094ff; color:white;">Satınalma Geçmişi</a></td>
+            </tr>
+        }
+    </tbody>
+
 </table>
+<br />
+<br />
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bulma.min.css">
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bulma.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json",
+            }
+        });
+    });
+</script>

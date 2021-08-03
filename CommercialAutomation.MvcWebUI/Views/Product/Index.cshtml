@@ -9,56 +9,139 @@
 @{ string statusButton = "";}
 
 <a href="/Product/Add/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Ürün Ekle</a>
-<table class="table table-bordered">
-    <tr style="background-color:deepskyblue">
-        <th>Id</th>
-        <th>Ürün</th>
-        <th>Marka</th>
-        <th>Kategori</th>
-        <th>Stok</th>
-        <th>₺ Alış Fiyatı</th>
-        <th>₺ Satış Fiyatı</th>
-        <th>Görsel</th>
-        <th>Durum</th>
-        <th>Aktif &ndash; Pasif</th>
-        <th>Güncelle</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        if (item.ProductStatus == true)
-        {
-            status = "Pasif Yap";
-        }
-        if (item.ProductStatus == false)
-        {
-            status = "Aktif Yap";
-        }
-        if (item.ProductStatus == true)
-        {
-            statusButton = "btn btn-danger";
-        }
-        if (item.ProductStatus == false)
-        {
-            statusButton = "btn btn-warning";
-        }
-
-        <tr>
-            <th>@item.ProductId</th>
-            <td>@item.ProductName</td>
-            <td>@item.Brand</td>
-            <td>@item.Category.CategoryName</td>
-            <td>@item.UnitsInStock</td>
-            <td>@item.PurchasePrice</td>
-            <td>@item.SalePrice</td>
-            <td>
-                <img src="@item.ProductImage" style="width:90px; height:70px"/>
-            </td>
-            <td>@item.ProductStatus</td>
-            <td><a href="/Product/Delete/@item.ProductId" class="@statusButton">@status</a></td>
-            <td><a href="/Product/Update/@item.ProductId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
+@*<table class="table table-bordered">
+        <tr style="background-color:deepskyblue">
+            <th>Id</th>
+            <th>Ürün</th>
+            <th>Marka</th>
+            <th>Kategori</th>
+            <th>Stok</th>
+            <th>₺ Alış Fiyatı</th>
+            <th>₺ Satış Fiyatı</th>
+            <th>Görsel</th>
+            <th>Durum</th>
+            <th>Aktif &ndash; Pasif</th>
+            <th>Güncelle</th>
         </tr>
-    }
+
+        @foreach (var item in Model)
+        {
+            if (item.ProductStatus == true)
+            {
+                status = "Pasif Yap";
+            }
+            if (item.ProductStatus == false)
+            {
+                status = "Aktif Yap";
+            }
+            if (item.ProductStatus == true)
+            {
+                statusButton = "btn btn-danger";
+            }
+            if (item.ProductStatus == false)
+            {
+                statusButton = "btn btn-warning";
+            }
+
+            <tr>
+                <th>@item.ProductId</th>
+                <td>@item.ProductName</td>
+                <td>@item.Brand</td>
+                <td>@item.Category.CategoryName</td>
+                <td>@item.UnitsInStock</td>
+                <td>@item.PurchasePrice</td>
+                <td>@item.SalePrice</td>
+                <td>
+                    <img src="@item.ProductImage" style="width:90px; height:70px"/>
+                </td>
+                <td>@item.ProductStatus</td>
+                <td><a href="/Product/Delete/@item.ProductId" class="@statusButton">@status</a></td>
+                <td><a href="/Product/Update/@item.ProductId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
+            </tr>
+        }
+    </table>*@
+
+
+<table id="example" class="table is-striped">
+
+    <thead>
+
+        <tr style="background-color:deepskyblue">
+
+            <th>Id</th>
+            <th>Ürün</th>
+            <th>Marka</th>
+            <th>Kategori</th>
+            <th>Stok</th>
+            <th>₺ Alış Fiyatı</th>
+            <th>₺ Satış Fiyatı</th>
+            <th>Görsel</th>
+            <th>Durum</th>
+            <th>Aktif &ndash; Pasif</th>
+            <th>Güncelle</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.ProductStatus == true)
+            {
+                status = "Pasif Yap";
+            }
+            if (item.ProductStatus == false)
+            {
+                status = "Aktif Yap";
+            }
+            if (item.ProductStatus == true)
+            {
+                statusButton = "btn btn-danger";
+            }
+            if (item.ProductStatus == false)
+            {
+                statusButton = "btn btn-warning";
+            }
+
+            <tr>
+                <th>@item.ProductId</th>
+                <td>@item.ProductName</td>
+                <td>@item.Brand</td>
+                <td>@item.Category.CategoryName</td>
+                <td>@item.UnitsInStock</td>
+                <td>@item.PurchasePrice</td>
+                <td>@item.SalePrice</td>
+                <td>
+                    <img src="@item.ProductImage" style="width:90px; height:70px" />
+                </td>
+                <td>@item.ProductStatus</td>
+                <td><a href="/Product/Delete/@item.ProductId" class="@statusButton">@status</a></td>
+                <td><a href="/Product/Update/@item.ProductId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+
 </table>
+<br />
+<br />
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bulma.min.css">
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bulma.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json",
+            }
+        });
+    });
+</script>
