@@ -7,25 +7,26 @@
 
 <h3>Personel güncelleme sayfası</h3>
 
-@using (Html.BeginForm("Update", "Employee", FormMethod.Post))
+@using (Html.BeginForm("Update", "Employee", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <div class="form-group">
-        @Html.HiddenFor(x=>x.EmployeeId)
-        <b>@Html.Label("Peronel Adı")</b>
-        @Html.TextBoxFor(c => c.EmployeeName, new { @class = "form-control" })
-        <br />
-        <b>@Html.Label("Peronel Soyadı")</b>
-        @Html.TextBoxFor(c => c.EmployeeLastName, new { @class = "form-control" })
-        <br />
-        <b>@Html.Label("Departman")</b>
-        @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.valueDepartment,
-          new { @class = "form-control" })
-        <br />
-        <b>@Html.Label("Görsel")</b>
-        @Html.TextBoxFor(c => c.EmployeeImage, new { @class = "form-control" })
-        <br />
-        <button class="btn btn-default" id="updated" style="background-color:#ff6a00; color:white;">Değişiklikleri Kaydet</button>
-    </div>
+<div class="form-group">
+    @Html.HiddenFor(x => x.EmployeeId)
+    <b>@Html.Label("Peronel Adı")</b>
+    @Html.TextBoxFor(c => c.EmployeeName, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Peronel Soyadı")</b>
+    @Html.TextBoxFor(c => c.EmployeeLastName, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Departman")</b>
+    @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.valueDepartment,
+      new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Görsel")</b>
+    @*@Html.TextBoxFor(c => c.EmployeeImage, new { @class = "form-control" })*@
+    <input type="file" class="btn btn-dark" name="EmployeeImage" />
+    <br />
+    <button class="btn btn-default" id="updated" style="background-color:#ff6a00; margin-top:20px; color:white;">Değişiklikleri Kaydet</button>
+</div>
 }
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

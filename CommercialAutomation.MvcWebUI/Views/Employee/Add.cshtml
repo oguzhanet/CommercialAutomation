@@ -5,24 +5,35 @@
 }
 
 <h3>Personel ekleme sayfası</h3>
-@using (Html.BeginForm("Add", "Employee", FormMethod.Post))
+@using (Html.BeginForm("Add", "Employee", FormMethod.Post, new { enctype="multipart/form-data" }))
 {
-    <div class="form-group">
-        <b>@Html.Label("Peronel Adı")</b>
-        @Html.TextBoxFor(c => c.EmployeeName, new { @class = "form-control" })
-        <br />
-        <b>@Html.Label("Peronel Soyadı")</b>
-        @Html.TextBoxFor(c => c.EmployeeLastName, new { @class = "form-control" })
-        <br />
-        <b>@Html.Label("Departman")</b>
-        @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.valueDepartment,
-          new { @class = "form-control" })
-        <br />
-        <b>@Html.Label("Görsel")</b>
-        @Html.TextBoxFor(c => c.EmployeeImage, new { @class = "form-control" })
-        <br />
-        <button class="btn btn-info" id="added">Ekle</button>
-    </div>
+<div class="form-group">
+    <b>@Html.Label("Peronel Adı")</b>
+    @Html.TextBoxFor(c => c.EmployeeName, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Peronel Soyadı")</b>
+    @Html.TextBoxFor(c => c.EmployeeLastName, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Departman")</b>
+    @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.valueDepartment,
+      new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Hakkında")</b>
+    @Html.TextBoxFor(c => c.EmployeeAbout, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Adres")</b>
+    @Html.TextBoxFor(c => c.EmployeeAddress, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Telefon")</b>
+    @Html.TextBoxFor(c => c.EmployeePhone, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Görsel: ")</b>
+    @*@Html.TextBoxFor(c => c.EmployeeImage, new { @class = "form-control" })*@
+    <input type="file" class="btn btn-dark" name="EmployeeImage" />
+    <br />
+    <button class="btn btn-info" style="margin-top:20px" id="added">Ekle</button>
+</div>
+<br />
 }
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using PagedList;
 using PagedList.Mvc;
+using System.IO;
 
 namespace CommercialAutomation.MvcWebUI.Controllers
 {
@@ -48,6 +49,15 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         [HttpPost]
         public ActionResult Add(Employee employee)
         {
+            if (Request.Files.Count > 0)
+            {
+                string file = Path.GetFileName(Request.Files[0].FileName);
+                string extension = Path.GetExtension(Request.Files[0].FileName);
+                string path = "~/Images/" + file + extension;
+                Request.Files[0].SaveAs(Server.MapPath(path));
+                employee.EmployeeImage = "/Images/" + file + extension;
+            }
+
             employee.EmployeeStatus = true;
             _employeeService.Add(employee);
             Thread.Sleep(1500);
@@ -73,6 +83,20 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         public ActionResult Update(Employee employee)
         {
             var result = _employeeService.GetById(employee.EmployeeId);
+
+            string file = Path.GetFileName(Request.Files[0].FileName);
+            string extension = Path.GetExtension(Request.Files[0].FileName);
+            string path = "~/Images/" + file + extension;
+            if (Request.Files.Count > 0 && file =="")
+            {
+                employee.EmployeeImage = result.EmployeeImage;           
+            }
+            else
+            {
+                Request.Files[0].SaveAs(Server.MapPath(path));
+                employee.EmployeeImage = "/Images/" + file + extension;
+            }
+
             employee.EmployeeStatus = result.EmployeeStatus;
             _employeeService.Update(employee);
             Thread.Sleep(1500);
