@@ -59,7 +59,7 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             //var result13 = _context.SaleMovements.Count(x => x.SaleDate == DateTime.Today).ToString();
             //ViewBag.result13 = result13;
 
-            //var result14 = _context.SaleMovements.Where(x => x.SaleDate == DateTime.Today).Sum(z => z.SumPrice).ToString();
+            //var result14 = _context.SaleMovements.Where(x => x.SaleDate == DateTime.Today).Sum(z => (decimal?)z.SumPrice).ToString();
             //ViewBag.result14 = result14;
 
             return View();
@@ -96,7 +96,7 @@ namespace CommercialAutomation.MvcWebUI.Controllers
                          select new StatisticsBrandGroup
                          {
                              Brand = a.Key,
-                             Count=a.Count()
+                             Count = a.Count()
                          };
             return PartialView(result.ToList());
         }
