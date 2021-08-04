@@ -1,0 +1,71 @@
+﻿@model CommercialAutomation.Entities.Concrete.SaleMovement
+@{
+    ViewBag.Title = "Sale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h3>Satış işlemi sayfası</h3>
+@using (Html.BeginForm("Sale", "Product", FormMethod.Post))
+{
+<div class="form-group">
+    <b>@Html.Label("Ürün Id")</b>
+    <input type="text" name="ProductId" value="@ViewBag.result" class="form-control" readonly/>
+    <br />
+    <b>@Html.Label("Personel Id")</b>
+    @Html.DropDownListFor(x => x.EmployeeId, (List<SelectListItem>)ViewBag.valueEmployee,
+         new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Müşteri Id")</b>
+    @Html.TextBoxFor(c => c.CustomerId, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Adet")</b>
+    <input type="number" class="form-control" max="20" min="1" />
+    <br />
+    <b>@Html.Label("Birim Fiyatı")</b>
+    <input type="text" name="SalePrice" value="@ViewBag.result1" class="form-control"/>
+    <br />
+    <b>@Html.Label("Toplam Satış Fiyatı")</b>
+    @Html.TextBoxFor(c => c.SumPrice, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Satış Tarihi")</b>
+    @Html.TextBoxFor(c => c.SaleDate, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" id="added">Satış Yap</button>
+</div>
+}
+<br />
+
+<input type="text" id="txt1" onkeyup="sum();" />
+<input type="text" id="txt2" onkeyup="sum();" />
+<input type="text" id="txt3" />
+
+<script>
+    function sum() {
+        var number1 = document.getElementById('txt1').value;
+        var number2 = document.getElementById('txt2').value;
+        var result = parseInt(number1) * parseInt(number2);
+        if (!isNaN(result)) {
+            document.getElementById('txt3').value = result;
+        }
+    }
+</script>
+
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+@*<script>
+    $('#added').click(function () {
+        swal({
+            title: "Eklendi!",
+            text: "Ürün Başarıyla Eklendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>*@
+
+
+

@@ -18,12 +18,14 @@ namespace CommercialAutomation.MvcWebUI.Controllers
 
         IProductService _productService;
         ICategoryService _categoryService;
+        IEmployeeService _employeeService;
         Context _context;
 
-        public ProductController(IProductService productService, ICategoryService categoryService, Context context)
+        public ProductController(IProductService productService, ICategoryService categoryService, IEmployeeService employeeService, Context context)
         {
             _productService = productService;
             _categoryService = categoryService;
+            _employeeService = employeeService;
             _context = context;
         }
 
@@ -108,8 +110,19 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         }
 
         [HttpGet]
-        public ActionResult Sale()
+        public ActionResult Sale(int id)
         {
+            List<SelectListItem> valueEmployee = (from employee in _employeeService.GetAll()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = employee.EmployeeName + " " + employee.EmployeeLastName,
+                                                      Value = employee.EmployeeId.ToString()
+                                                  }).ToList();
+            ViewBag.valueEmployee = valueEmployee;
+
+            var result = _productService.GetById(id);
+            ViewBag.result = result.ProductId;
+            ViewBag.result1 = result.SalePrice;
             return View();
         }
 

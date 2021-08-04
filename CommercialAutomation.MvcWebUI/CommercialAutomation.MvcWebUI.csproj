@@ -4835,6 +4835,7 @@
     <Content Include="Views\CustomerPanel\Index.cshtml" />
     <Content Include="Views\CustomerPanel\NameLayout.cshtml" />
     <Content Include="Views\CustomerPanel\CustomerOrder.cshtml" />
+    <Content Include="Views\Product\Sale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
