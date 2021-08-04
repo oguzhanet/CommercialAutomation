@@ -19,13 +19,15 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         IProductService _productService;
         ICategoryService _categoryService;
         IEmployeeService _employeeService;
+        ISaleMovementService _saleMovementService;
         Context _context;
 
-        public ProductController(IProductService productService, ICategoryService categoryService, IEmployeeService employeeService, Context context)
+        public ProductController(IProductService productService, ICategoryService categoryService, IEmployeeService employeeService, ISaleMovementService saleMovementService, Context context)
         {
             _productService = productService;
             _categoryService = categoryService;
             _employeeService = employeeService;
+            _saleMovementService = saleMovementService;
             _context = context;
         }
 
@@ -129,7 +131,10 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         [HttpPost]
         public ActionResult Sale(SaleMovement saleMovement)
         {
-            return View();
+            saleMovement.SaleDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            _saleMovementService.Add(saleMovement);
+            Thread.Sleep(1500);
+            return RedirectToAction("Index", "SaleMovement");
         }
 
         public ActionResult ProductList()

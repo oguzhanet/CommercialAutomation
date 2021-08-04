@@ -10,7 +10,7 @@
 {
 <div class="form-group">
     <b>@Html.Label("Ürün Id")</b>
-    <input type="text" name="ProductId" value="@ViewBag.result" class="form-control" readonly/>
+    <input type="text" name="ProductId" value="@ViewBag.result" class="form-control" readonly />
     <br />
     <b>@Html.Label("Personel Id")</b>
     @Html.DropDownListFor(x => x.EmployeeId, (List<SelectListItem>)ViewBag.valueEmployee,
@@ -20,25 +20,18 @@
     @Html.TextBoxFor(c => c.CustomerId, new { @class = "form-control" })
     <br />
     <b>@Html.Label("Adet")</b>
-    <input type="number" class="form-control" max="20" min="1" />
+    <input type="number" name="Piece" class="form-control" max="20" min="1" id="txt1" onchange="sum();" />
     <br />
     <b>@Html.Label("Birim Fiyatı")</b>
-    <input type="text" name="SalePrice" value="@ViewBag.result1" class="form-control"/>
+    <input type="text" name="UnitPirce" value="@ViewBag.result1" id="txt2" onkeyup="sum();" class="form-control" placeholder="Adet giriniz.."/>
     <br />
     <b>@Html.Label("Toplam Satış Fiyatı")</b>
-    @Html.TextBoxFor(c => c.SumPrice, new { @class = "form-control" })
-    <br />
-    <b>@Html.Label("Satış Tarihi")</b>
-    @Html.TextBoxFor(c => c.SaleDate, new { @class = "form-control" })
+    <input type="text" name="SumPrice" value="0" id="txt3" class="form-control" readonly/>
     <br />
     <button class="btn btn-info" id="added">Satış Yap</button>
 </div>
 }
 <br />
-
-<input type="text" id="txt1" onkeyup="sum();" />
-<input type="text" id="txt2" onkeyup="sum();" />
-<input type="text" id="txt3" />
 
 <script>
     function sum() {
@@ -52,20 +45,19 @@
 </script>
 
 
-
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 
-@*<script>
+<script>
     $('#added').click(function () {
         swal({
-            title: "Eklendi!",
-            text: "Ürün Başarıyla Eklendi!",
+            title: "Satıldı!",
+            text: "Satış Başarıyla Gerçekleşti!",
             icon: "success",
             button: false
         });
     });
-</script>*@
+</script>
 
 
 
