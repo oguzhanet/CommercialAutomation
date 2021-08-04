@@ -24,9 +24,9 @@
             <th>₺ Alış Fiyatı</th>
             <th>₺ Satış Fiyatı</th>
             <th>Görsel</th>
-            <th>Durum</th>
             <th>Aktif &ndash; Pasif</th>
             <th>Güncelle</th>
+            <th>Satış İşlemi</th>
 
         </tr>
 
@@ -63,9 +63,9 @@
                 <td>
                     <img src="@item.ProductImage" style="width:90px; height:70px" />
                 </td>
-                <td>@item.ProductStatus</td>
                 <td><a href="/Product/Delete/@item.ProductId" class="@statusButton">@status</a></td>
                 <td><a href="/Product/Update/@item.ProductId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>
+                <td><a href="/Product/Sale/@item.ProductId" class="btn btn-default" style="background-color:#ff006e; color:white;">Satış Yap</a></td>
             </tr>
         }
     </tbody>
