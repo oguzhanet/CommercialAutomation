@@ -15,7 +15,7 @@ namespace CommercialAutomation.MvcWebUI.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        ProductManager productManager = new ProductManager(new EfProductDal());
+
         IProductService _productService;
         ICategoryService _categoryService;
         Context _context;
@@ -26,6 +26,8 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             _categoryService = categoryService;
             _context = context;
         }
+
+        ProductManager productManager = new ProductManager(new EfProductDal());
 
         public ActionResult Index()
         {
@@ -103,6 +105,18 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             var result1 = _context.Products.Sum(x => x.SalePrice) * 25 / 100;
             ViewBag.result1 = result1;
             return View(result);
+        }
+
+        [HttpGet]
+        public ActionResult Sale()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Sale(SaleMovement saleMovement)
+        {
+            return View();
         }
 
         public ActionResult ProductList()
