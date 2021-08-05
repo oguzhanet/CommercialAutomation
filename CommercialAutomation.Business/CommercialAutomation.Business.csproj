@@ -74,6 +74,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAdminService.cs" />
+    <Compile Include="Abstract\ICargoDetailService.cs" />
+    <Compile Include="Abstract\ICargoFollowService.cs" />
     <Compile Include="Abstract\ICategoryService.cs" />
     <Compile Include="Abstract\ICustomerService.cs" />
     <Compile Include="Abstract\IDepartmentService.cs" />
@@ -84,6 +86,8 @@
     <Compile Include="Abstract\ISaleMovementService.cs" />
     <Compile Include="Abstract\IToDoListService.cs" />
     <Compile Include="Concrete\AdminManager.cs" />
+    <Compile Include="Concrete\CargoDetailManager.cs" />
+    <Compile Include="Concrete\CargoFollowManager.cs" />
     <Compile Include="Concrete\CategoryManager.cs" />
     <Compile Include="Concrete\CustomerManager.cs" />
     <Compile Include="Concrete\DepartmentManager.cs" />

@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAdminDal.cs" />
+    <Compile Include="Abstract\ICargoDetailDal.cs" />
+    <Compile Include="Abstract\ICargoFollowDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\ICustomerDal.cs" />
     <Compile Include="Abstract\IDepartmentDal.cs" />
@@ -63,6 +65,8 @@
     <Compile Include="Abstract\IToDoListDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\EntityFramework\EfAdminDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCargoDetailDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCargoFollowDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfCustomerDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfDepartmentDal.cs" />
@@ -120,6 +124,10 @@
     <Compile Include="Migrations\202108051041005_mig_cargodetail.designer.cs">
       <DependentUpon>202108051041005_mig_cargodetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108051107089_mig_cargofollow.cs" />
+    <Compile Include="Migrations\202108051107089_mig_cargofollow.designer.cs">
+      <DependentUpon>202108051107089_mig_cargofollow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -159,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108051041005_mig_cargodetail.resx">
       <DependentUpon>202108051041005_mig_cargodetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108051107089_mig_cargofollow.resx">
+      <DependentUpon>202108051107089_mig_cargofollow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

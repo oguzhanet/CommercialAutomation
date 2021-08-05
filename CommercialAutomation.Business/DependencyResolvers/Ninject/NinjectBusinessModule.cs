@@ -41,6 +41,12 @@ namespace CommercialAutomation.Business.DependencyResolvers.Ninject
 
             Bind<IToDoListService>().To<ToDoListManager>().InSingletonScope();
             Bind<IToDoListDal>().To<EfToDoListDal>().InSingletonScope();
+
+            Bind<ICargoDetailService>().To<CargoDetailManager>().InSingletonScope();
+            Bind<ICargoDetailDal>().To<EfCargoDetailDal>().InSingletonScope();
+
+            Bind<ICargoFollowService>().To<CargoFollowManager>().InSingletonScope();
+            Bind<ICargoFollowDal>().To<EfCargoFollowDal>().InSingletonScope();
         }
     }
 }

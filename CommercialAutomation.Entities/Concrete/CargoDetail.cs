@@ -12,9 +12,9 @@ namespace CommercialAutomation.Entities.Concrete
     {
         [Key]
         public int CargoDetailId { get; set; }
-        [StringLength(100)]
+        [StringLength(300)]
         public string CargoDescription { get; set; }
-        [StringLength(15)]
+        [StringLength(10)]
         public string TrackingCode { get; set; }
         public DateTime CargoDate { get; set; }
 
