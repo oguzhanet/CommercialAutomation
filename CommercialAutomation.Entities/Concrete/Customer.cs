@@ -31,5 +31,6 @@ namespace CommercialAutomation.Entities.Concrete
         public bool CustomerStatus { get; set; }
 
         public ICollection<SaleMovement> SaleMovements { get; set; }
+        public ICollection<CargoDetail> CargoDetails { get; set; }
     }
 }

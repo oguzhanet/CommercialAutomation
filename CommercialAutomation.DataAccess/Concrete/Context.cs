@@ -21,5 +21,6 @@ namespace CommercialAutomation.DataAccess.Concrete
         public DbSet<Product> Products { get; set; }
         public DbSet<SaleMovement> SaleMovements { get; set; }
         public DbSet<ToDoList> ToDoLists { get; set; }
+        public DbSet<CargoDetail> CargoDetails { get; set; }
     }
 }
