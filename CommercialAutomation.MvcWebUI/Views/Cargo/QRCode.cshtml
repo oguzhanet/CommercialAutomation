@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "QRCode";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div>
+    @using (Html.BeginForm("QRCode", "Cargo", FormMethod.Post))
+    {
+        <input type="text" name="code" class="form-control"/>
+        <br />
+        <input type="submit" value="QR Code Oluştur" class="btn btn-success"/>
+    }
+    <br />
+    @if (ViewBag.qRCodeImage!=null)
+    {
+        <img src="@ViewBag.qRCodeImage" alt="" style="width:300px; height:300px; margin-left:450px" />
+    }
+</div>
+

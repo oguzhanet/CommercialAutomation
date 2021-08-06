@@ -1,7 +1,11 @@
 ﻿using CommercialAutomation.Business.Abstract;
 using CommercialAutomation.Entities.Concrete;
+using QRCoder;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -81,6 +85,28 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         {
             var result = _cargoFollowService.GetAllByFollowCode(id);
             return View(result);
+        }
+
+        [HttpGet]
+        public ActionResult QRCode()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult QRCode(string code)
+        {
+            using (MemoryStream memoryStream=new MemoryStream())
+            {
+                QRCodeGenerator qRCodeGenerator = new QRCodeGenerator();
+                QRCodeGenerator.QRCode qRCode = qRCodeGenerator.CreateQrCode(code, QRCodeGenerator.ECCLevel.Q);
+                using (Bitmap bitmapImage=qRCode.GetGraphic(10))
+                {
+                    bitmapImage.Save(memoryStream, ImageFormat.Png);
+                    ViewBag.qRCodeImage = "data:images/png;base64," + Convert.ToBase64String(memoryStream.ToArray());
+                }
+            }
+            return View();
         }
     }
 }
