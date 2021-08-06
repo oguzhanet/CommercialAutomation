@@ -1,0 +1,72 @@
+﻿@using CommercialAutomation.Entities.Concrete
+@model List<CargoDetail>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div>
+    <div class="row gx-5">
+        <div class="col" style="margin-top:5px; margin-bottom:5px;">
+            <a href="/Cargo/AddCargoDetail/" class="btn btn-default" style="background-color:deepskyblue; margin-block-end:15px;">Yeni Kargo Girişi</a>
+        </div>
+        <div class="col-2" style="margin-top:5px; margin-bottom:5px; margin-right:15px;">
+            <a href="/Category/Transaction/" class="btn btn-default" style="background-color:#808080; margin-block-end:15px;">Çıktı İşlemleri</a>
+        </div>
+    </div>
+</div>
+
+<table id="example" class="table is-striped">
+
+    <thead>
+
+        <tr style="background-color:deepskyblue">
+
+            <th>Takip Numarası</th>
+            <th>Personel</th>
+            <th>Alıcı</th>
+            <th>Tarih</th>
+            <th>Detaylar</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <th>@item.TrackingCode</th>
+                <td>@item.Employee.EmployeeName @item.Employee.EmployeeLastName</td>
+                <td>@item.Customer.CustomerName @item.Customer.CustomerLastName</td>
+                <td>@item.CargoDate</td>
+                <td><a href="/Cargo/FollowCargo/@item.TrackingCode" class="btn btn-default" style="background-color:#0094ff; color:white;">Detaylar</a></td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+<br />
+<br />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bulma.min.css">
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bulma.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json",
+            }
+        });
+    });
+</script>

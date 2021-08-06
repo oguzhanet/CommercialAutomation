@@ -1,0 +1,23 @@
+﻿@using CommercialAutomation.Entities.Concrete
+@model List<CargoFollow>
+@{
+    ViewBag.Title = "FollowCargo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-striped">
+    <tr style="background-color:deepskyblue">
+        <th>Açıklama</th>
+        <th>Tarih</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.CargoFollowDescription</th>
+            <td>@item.CargoFollowDate</td>
+        </tr>
+    }
+</table>
+
+

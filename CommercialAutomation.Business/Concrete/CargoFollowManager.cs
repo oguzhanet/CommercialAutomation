@@ -33,6 +33,11 @@ namespace CommercialAutomation.Business.Concrete
             return _cargoFollowDal.GetAll();
         }
 
+        public List<CargoFollow> GetAllByFollowCode(string followCode)
+        {
+            return _cargoFollowDal.GetAll(x => x.CargoFollowCode == followCode);
+        }
+
         public CargoFollow GetById(int id)
         {
             return _cargoFollowDal.Get(x => x.CargoFollowId == id);

@@ -1,0 +1,45 @@
+﻿@model CommercialAutomation.Entities.Concrete.CargoDetail
+
+@{
+    ViewBag.Title = "AddCargoDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Kargo detay ekleme sayfası</h3>
+@using (Html.BeginForm("AddCargoDetail", "Cargo", FormMethod.Post))
+{
+<div class="form-group">
+    <b>@Html.Label("Kargo Takip Kodu")</b>
+    <input type="text" name="TrackingCode" value="@ViewBag.code" class="form-control" readonly />
+    <br />
+    <b>@Html.Label("Müşteri Adı ve Soyadı")</b>
+    @Html.DropDownListFor(x => x.CustomerId, (List<SelectListItem>)ViewBag.valueCustomer,
+  new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Personel Adı ve Soyadı")</b>
+    @Html.DropDownListFor(x => x.EmployeeId, (List<SelectListItem>)ViewBag.valueEmployee,
+      new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Açıklama")</b>
+    @Html.TextAreaFor(c => c.CargoDescription, new { @class = "form-control" })
+    <br />
+    <b>@Html.Label("Tarih")</b>
+    <input type="datetime-local" name="CargoDate" class="form-control" />
+    <br />
+    <button class="btn btn-info" id="added">Ekle</button>
+</div>
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#added').click(function () {
+        swal({
+            title: "Eklendi!",
+            text: "Kargo Bilgisi Başarıyla Eklendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>

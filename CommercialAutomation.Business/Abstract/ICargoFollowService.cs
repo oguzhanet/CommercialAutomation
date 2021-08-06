@@ -10,6 +10,7 @@ namespace CommercialAutomation.Business.Abstract
     public interface ICargoFollowService
     {
         List<CargoFollow> GetAll();
+        List<CargoFollow> GetAllByFollowCode(string followCode);
         CargoFollow GetById(int id);
         void Add(CargoFollow cargoFollow);
         void Update(CargoFollow cargoFollow);
