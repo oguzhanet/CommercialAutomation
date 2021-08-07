@@ -153,6 +153,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\GraphicController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\InvoiceItemController.cs" />
@@ -4844,6 +4845,7 @@
     <Content Include="Views\Cargo\AddCargoDetail.cshtml" />
     <Content Include="Views\Cargo\FollowCargo.cshtml" />
     <Content Include="Views\Cargo\QRCode.cshtml" />
+    <Content Include="Views\Graphic\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
