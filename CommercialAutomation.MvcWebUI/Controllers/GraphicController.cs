@@ -1,5 +1,6 @@
 ﻿using CommercialAutomation.Business.Abstract;
 using CommercialAutomation.DataAccess.Concrete;
+using CommercialAutomation.MvcWebUI.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,6 +37,31 @@ namespace CommercialAutomation.MvcWebUI.Controllers
                 .AddSeries(chartType: "Column", name: "Stok", xValue: _xvalue, yValues: _yvalue);
 
             return File(graphic.ToWebImage().GetBytes(), "image/jpeg");
+        }
+
+        public ActionResult GoogleChart()
+        {
+            return View();
+        }
+
+        public ActionResult VisualizeProductResult()
+        {
+            return Json(ProductListGoogleChart(), JsonRequestBehavior.AllowGet);
+        }
+
+        public List<ProductGoogleChart> ProductListGoogleChart()
+        {
+            List<ProductGoogleChart> products = new List<ProductGoogleChart>();
+            using (var context = new Context())
+            {
+                products = context.Products.Select(x => new ProductGoogleChart
+                {
+                    ProductName = x.ProductName,
+                    Stock = x.UnitsInStock
+                }).ToList();
+            }
+
+            return products;
         }
     }
 }

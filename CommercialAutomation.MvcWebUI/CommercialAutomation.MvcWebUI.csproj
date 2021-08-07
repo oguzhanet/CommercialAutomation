@@ -165,6 +165,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductGoogleChart.cs" />
     <Compile Include="Models\StatisticsBrandGroup.cs" />
     <Compile Include="Models\StatisticsCategoryGroup.cs" />
     <Compile Include="Models\StatisticsGroup.cs" />
@@ -4846,6 +4847,7 @@
     <Content Include="Views\Cargo\FollowCargo.cshtml" />
     <Content Include="Views\Cargo\QRCode.cshtml" />
     <Content Include="Views\Graphic\Index.cshtml" />
+    <Content Include="Views\Graphic\GoogleChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
