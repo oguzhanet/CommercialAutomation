@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -89,6 +90,7 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             message.SenderMail = parameter;
             message.MessageDate= DateTime.Parse(DateTime.Now.ToShortTimeString());
             _messageService.Add(message);
+            Thread.Sleep(1500);
             return RedirectToAction("SendBox");
         }
 

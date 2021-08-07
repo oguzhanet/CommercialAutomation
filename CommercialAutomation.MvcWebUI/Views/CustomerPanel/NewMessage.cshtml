@@ -31,7 +31,7 @@
 
     <div class="contact1">
         <div class="container-contact1">
-            <div  class="contact1-pic js-tilt" data-tilt>
+            <div class="contact1-pic js-tilt" data-tilt>
                 <img src="~/Templates/ContactFrom/images/img-01.png" alt="IMG">
             </div>
 
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="container-contact1-form-btn">
-                    <button type="submit" class="contact1-form-btn">
+                    <button type="submit" id="added" class="contact1-form-btn">
                         <span>
                             Gönder
                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -80,24 +80,36 @@
     <!--===============================================================================================-->
     <script src="~/Templates/ContactFrom/vendor/tilt/tilt.jquery.min.js"></script>
     <script>
-		$('.js-tilt').tilt({
-			scale: 1.1
-		})
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'UA-23581568-13');
+        gtag('config', 'UA-23581568-13');
     </script>
 
     <!--===============================================================================================-->
     <script src="js/main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
 
+    <script>
+        $('#added').click(function () {
+            swal({
+                title: "Gönderildi!",
+                text: "Mesaj Başarıyla Gönderildi!",
+                icon: "success",
+                button: false
+            });
+        });
+    </script>
 </body>
 </html>
 
