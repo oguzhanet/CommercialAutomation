@@ -16,11 +16,13 @@ namespace CommercialAutomation.MvcWebUI.Controllers
     {
         // GET: CustomerPanel
         ICustomerService _customerService;
+        IMessageService _messageService;
         Context _context;
 
-        public CustomerPanelController(ICustomerService customerService, Context context)
+        public CustomerPanelController(ICustomerService customerService, IMessageService messageService,  Context context)
         {
             _customerService = customerService;
+            _messageService = messageService;
             _context = context;
         }
 
@@ -58,6 +60,36 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             var id = _context.Customers.Where(x => x.CustomerMail == parameter.ToString()).Select(z => z.CustomerId).FirstOrDefault();
             var result = _context.SaleMovements.Where(x => x.CustomerId == id).ToList();
             return View(result);
+        }
+
+        public ActionResult InBox()
+        {
+            var parameter = (string)Session["CustomerMail"];
+            var result = _messageService.GetAllInbox(parameter);
+            return View(result);
+        }
+
+        public ActionResult SendBox()
+        {
+            var parameter = (string)Session["CustomerMail"];
+            var result = _messageService.GetAllSendbox(parameter);
+            return View(result);
+        }
+
+        [HttpGet]
+        public ActionResult NewMessage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult NewMessage(Message message)
+        {
+            var parameter = (string)Session["CustomerMail"];
+            message.SenderMail = parameter;
+            message.MessageDate= DateTime.Parse(DateTime.Now.ToShortTimeString());
+            _messageService.Add(message);
+            return RedirectToAction("SendBox");
         }
 
         public PartialViewResult NameLayout()

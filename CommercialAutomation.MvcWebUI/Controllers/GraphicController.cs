@@ -19,7 +19,7 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         ArrayList _xvalue;
         ArrayList _yvalue;
 
-        public GraphicController(IProductService productService,Context context, ArrayList xvalue, ArrayList yvalue)
+        public GraphicController(IProductService productService, Context context, ArrayList xvalue, ArrayList yvalue)
         {
             _productService = productService;
             _context = context;

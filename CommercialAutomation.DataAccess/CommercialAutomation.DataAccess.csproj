@@ -60,6 +60,7 @@
     <Compile Include="Abstract\IEmployeeDal.cs" />
     <Compile Include="Abstract\IInvoiceDal.cs" />
     <Compile Include="Abstract\IInvoiceItemDal.cs" />
+    <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IProductDal.cs" />
     <Compile Include="Abstract\ISaleMovementDal.cs" />
     <Compile Include="Abstract\IToDoListDal.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Concrete\EntityFramework\EfEmployeeDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfInvoiceDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfInvoiceItemDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfMessageDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfProductDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfSaleMovementDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfToDoListDal.cs" />
@@ -128,6 +130,14 @@
     <Compile Include="Migrations\202108051107089_mig_cargofollow.designer.cs">
       <DependentUpon>202108051107089_mig_cargofollow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108071621519_mig_message.cs" />
+    <Compile Include="Migrations\202108071621519_mig_message.designer.cs">
+      <DependentUpon>202108071621519_mig_message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108071740169_mig_messagename.cs" />
+    <Compile Include="Migrations\202108071740169_mig_messagename.designer.cs">
+      <DependentUpon>202108071740169_mig_messagename.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -170,6 +180,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108051107089_mig_cargofollow.resx">
       <DependentUpon>202108051107089_mig_cargofollow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108071621519_mig_message.resx">
+      <DependentUpon>202108071621519_mig_message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108071740169_mig_messagename.resx">
+      <DependentUpon>202108071740169_mig_messagename.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

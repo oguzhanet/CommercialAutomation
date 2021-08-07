@@ -82,6 +82,7 @@
     <Compile Include="Abstract\IEmployeeService.cs" />
     <Compile Include="Abstract\IInvoiceItemService.cs" />
     <Compile Include="Abstract\IInvoiceService.cs" />
+    <Compile Include="Abstract\IMessageService.cs" />
     <Compile Include="Abstract\IProductService.cs" />
     <Compile Include="Abstract\ISaleMovementService.cs" />
     <Compile Include="Abstract\IToDoListService.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Concrete\EmployeeManager.cs" />
     <Compile Include="Concrete\InvoiceItemManager.cs" />
     <Compile Include="Concrete\InvoiceManager.cs" />
+    <Compile Include="Concrete\MessageManager.cs" />
     <Compile Include="Concrete\ProductManager.cs" />
     <Compile Include="Concrete\SaleMovementManager.cs" />
     <Compile Include="Concrete\ToDoListManager.cs" />

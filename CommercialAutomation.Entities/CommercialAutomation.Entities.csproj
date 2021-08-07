@@ -61,6 +61,7 @@
     <Compile Include="Concrete\Expense.cs" />
     <Compile Include="Concrete\Invoice.cs" />
     <Compile Include="Concrete\InvoiceItem.cs" />
+    <Compile Include="Concrete\Message.cs" />
     <Compile Include="Concrete\Product.cs" />
     <Compile Include="Concrete\SaleMovement.cs" />
     <Compile Include="Concrete\ToDoList.cs" />
