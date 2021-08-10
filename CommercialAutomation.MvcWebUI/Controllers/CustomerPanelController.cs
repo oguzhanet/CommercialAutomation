@@ -43,6 +43,16 @@ namespace CommercialAutomation.MvcWebUI.Controllers
 
             var customerImage = _context.Customers.Where(x => x.CustomerMail == parameter).Select(z => z.CustomerImage).FirstOrDefault();
             ViewBag.customerImage = customerImage;
+
+            var customerName = _context.Customers.Where(x => x.CustomerMail == parameter).Select(z => z.CustomerName + " " + z.CustomerLastName).FirstOrDefault();
+            ViewBag.customerName = customerName;
+
+            var customerId = _context.Customers.Where(x => x.CustomerMail == parameter).Select(z => z.CustomerId).FirstOrDefault();
+            var customerSale = _context.SaleMovements.Where(x => x.CustomerId == customerId).Count();
+            ViewBag.customerSale = customerSale;
+
+            var customerMessage = _context.Messages.Where(x => x.ReceiverMail == parameter).Count();
+            ViewBag.customerMessage = customerMessage;
             return View(result);
         }
 
