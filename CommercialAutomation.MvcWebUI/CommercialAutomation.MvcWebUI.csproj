@@ -180,6 +180,7 @@
     <Compile Include="Controllers\CustomerPanelController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ErrorPageController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\GraphicController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -4970,6 +4971,7 @@
     <Content Include="Views\CustomerPanel\SendBox.cshtml" />
     <Content Include="Views\CustomerPanel\CargoFollow.cshtml" />
     <Content Include="Views\CustomerPanel\CargoFollowDetail.cshtml" />
+    <Content Include="Views\ErrorPage\PageError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
