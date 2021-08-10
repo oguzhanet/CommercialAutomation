@@ -1,0 +1,58 @@
+﻿@using CommercialAutomation.Entities.Concrete
+@model List<CargoDetail>
+@{
+    ViewBag.Title = "CargoFollow";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+@using (Html.BeginForm("CargoFollow", "CustomerPanel", FormMethod.Post))
+{
+    <div style="margin-bottom:20px; margin-top:18px;">
+        <table>
+            <tr>
+                <td>
+                    <input style=" margin-right: 100px" type="text" class="form-control" name="search" placeholder="Takip Kodunuz.." />
+                </td>
+                <td>
+                    <input type="submit" value="Ara" class="btn btn-success" />
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+
+<table id="example" class="table is-striped">
+
+    <thead>
+
+        <tr style="background-color:deepskyblue">
+
+            <th><b style="color:#222121">Takip Numarası</b></th>
+            <th><b style="color:#222121">Personel</b></th>
+            <th><b style="color:#222121">Alıcı</b></th>
+            <th><b style="color:#222121">Tarih</b></th>
+            <th><b style="color:#222121">Detaylar</b></th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <th><b style="color:#222121">@item.TrackingCode</b></th>
+                <td><b style="color:#4e4848">@item.Employee.EmployeeName @item.Employee.EmployeeLastName</b></td>
+                <td><b style="color:#4e4848">@item.Customer.CustomerName @item.Customer.CustomerLastName</b></td>
+                <td><b style="color:#4e4848">@item.CargoDate</b></td>
+                <td><a href="/CustomerPanel/CargoFollowDetail/@item.TrackingCode" class="btn btn-default" style="background-color:#0094ff; color:white;">Detaylar</a></td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+<br />
+<br />
+

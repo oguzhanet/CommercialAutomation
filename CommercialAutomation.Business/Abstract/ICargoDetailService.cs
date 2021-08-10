@@ -10,6 +10,7 @@ namespace CommercialAutomation.Business.Abstract
     public interface ICargoDetailService
     {
         List<CargoDetail> GetAll();
+        List<CargoDetail> GetAllByCustomerId(int id);
         CargoDetail GetById(int id);
         void Add(CargoDetail cargoDetail);
         void Update(CargoDetail cargoDetail);

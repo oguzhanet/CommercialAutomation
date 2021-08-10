@@ -65,16 +65,16 @@
 
                             <div class="text-center">
 
-                                @if (@ViewBag.writerImage == null)
+                                @if (ViewBag.writerImage == null)
                                 {
-                                    <img style="width:170px; height:190px" class="profile-user-img img-fluid img-circle"
+                                    <img style="width:150px; height:170px" class="profile-user-img img-fluid img-circle figure-img img-fluid rounded"
                                          src="~/Templates/AdminLTE-3.0.4/dist/img/avatar04.png"
                                          alt="User profile picture">
                                 }
                                 else
                                 {
                                 <img class="profile-user-img img-fluid img-circle"
-                                     src="@ViewBag.writerImage"
+                                     src="@ViewBag.customerImage"
                                      alt="User profile picture">
                                 }
 

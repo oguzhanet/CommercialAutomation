@@ -33,6 +33,11 @@ namespace CommercialAutomation.Business.Concrete
             return _cargoDetailDal.GetAll();
         }
 
+        public List<CargoDetail> GetAllByCustomerId(int id)
+        {
+            return _cargoDetailDal.GetAllById(x => x.CustomerId == id);
+        }
+
         public CargoDetail GetById(int id)
         {
             return _cargoDetailDal.Get(x => x.CargoDetailId == id);

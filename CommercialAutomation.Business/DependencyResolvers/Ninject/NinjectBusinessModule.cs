@@ -48,9 +48,6 @@ namespace CommercialAutomation.Business.DependencyResolvers.Ninject
             Bind<ICargoFollowService>().To<CargoFollowManager>().InSingletonScope();
             Bind<ICargoFollowDal>().To<EfCargoFollowDal>().InSingletonScope();
 
-            Bind<ICargoFollowService>().To<CargoFollowManager>().InSingletonScope();
-            Bind<ICargoFollowDal>().To<EfCargoFollowDal>().InSingletonScope();
-
             Bind<IMessageService>().To<MessageManager>().InSingletonScope();
             Bind<IMessageDal>().To<EfMessageDal>().InSingletonScope();
         }

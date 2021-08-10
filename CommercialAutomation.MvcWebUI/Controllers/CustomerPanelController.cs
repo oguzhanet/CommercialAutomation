@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace CommercialAutomation.MvcWebUI.Controllers
 {
@@ -18,12 +19,16 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         // GET: CustomerPanel
         ICustomerService _customerService;
         IMessageService _messageService;
+        ICargoDetailService _cargoDetailService;
+        ICargoFollowService _cargoFollowService;
         Context _context;
 
-        public CustomerPanelController(ICustomerService customerService, IMessageService messageService,  Context context)
+        public CustomerPanelController(ICustomerService customerService, IMessageService messageService, ICargoDetailService cargoDetailService, ICargoFollowService cargoFollowService, Context context)
         {
             _customerService = customerService;
             _messageService = messageService;
+            _cargoDetailService = cargoDetailService;
+            _cargoFollowService = cargoFollowService;
             _context = context;
         }
 
@@ -35,6 +40,9 @@ namespace CommercialAutomation.MvcWebUI.Controllers
 
             id = _context.Customers.Where(x => x.CustomerMail == parameter).Select(z => z.CustomerId).FirstOrDefault();
             var result = _customerService.GetById(id);
+
+            var customerImage = _context.Customers.Where(x => x.CustomerMail == parameter).Select(z => z.CustomerImage).FirstOrDefault();
+            ViewBag.customerImage = customerImage;
             return View(result);
         }
 
@@ -66,14 +74,14 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         public ActionResult InBox()
         {
             var parameter = (string)Session["CustomerMail"];
-            var result = _messageService.GetAllInbox(parameter);
+            var result = _messageService.GetAllInbox(parameter).OrderByDescending(x=>x.MessageId).ToList();
             return View(result);
         }
 
         public ActionResult SendBox()
         {
             var parameter = (string)Session["CustomerMail"];
-            var result = _messageService.GetAllSendbox(parameter);
+            var result = _messageService.GetAllSendbox(parameter).OrderByDescending(x => x.MessageId).ToList();
             return View(result);
         }
 
@@ -94,6 +102,25 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             return RedirectToAction("SendBox");
         }
 
+        public ActionResult CargoFollow(string search, int id=0)
+        {
+            var parameter = (string)Session["CustomerMail"];
+            id = _context.Customers.Where(x => x.CustomerMail == parameter).Select(z => z.CustomerId).FirstOrDefault();
+            //var result = _cargoDetailService.GetAllByCustomerId(id);
+            var result = from x in _context.CargoDetails where x.CustomerId==id select x;
+            if (!string.IsNullOrEmpty(search))
+            {
+                result = result.Where(z => z.TrackingCode.Contains(search));
+            }
+            return View(result.ToList());
+        }
+
+        public ActionResult CargoFollowDetail(string id)
+        {
+            var result = _cargoFollowService.GetAllByFollowCode(id);
+            return View(result);
+        }
+
         public PartialViewResult NameLayout()
         {
             var parameter = (string)Session["CustomerMail"];
@@ -105,6 +132,13 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             ViewBag.image = image;
 
             return PartialView();
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
         }
     }
 }
