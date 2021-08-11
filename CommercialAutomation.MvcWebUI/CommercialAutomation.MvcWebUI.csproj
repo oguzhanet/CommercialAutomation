@@ -195,6 +195,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\InvoiceAndInvoiceItem.cs" />
     <Compile Include="Models\ProductGoogleChart.cs" />
     <Compile Include="Models\StatisticsBrandGroup.cs" />
     <Compile Include="Models\StatisticsCategoryGroup.cs" />
@@ -4983,6 +4984,7 @@
     <Content Include="Templates\errorpage\fonts\fontawesome-webfont.woff" />
     <Content Include="Templates\errorpage\fonts\fontawesome-webfont.woff2" />
     <Content Include="Templates\errorpage\fonts\FontAwesome.otf" />
+    <Content Include="Views\Invoice\InvoiceDynamic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

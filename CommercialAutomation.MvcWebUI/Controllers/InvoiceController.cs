@@ -1,7 +1,9 @@
 ﻿using CommercialAutomation.Business.Abstract;
 using CommercialAutomation.Business.Concrete;
+using CommercialAutomation.DataAccess.Concrete;
 using CommercialAutomation.DataAccess.Concrete.EntityFramework;
 using CommercialAutomation.Entities.Concrete;
+using CommercialAutomation.MvcWebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +19,13 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         InvoiceManager ınvoiceManager = new InvoiceManager(new EfInvoiceDal());
         IInvoiceService _ınvoiceService;
         IInvoiceItemService _ınvoiceItemService;
+        Context _context;
 
-        public InvoiceController(IInvoiceService ınvoiceService, IInvoiceItemService ınvoiceItemService)
+        public InvoiceController(IInvoiceService ınvoiceService, IInvoiceItemService ınvoiceItemService, Context context)
         {
             _ınvoiceService = ınvoiceService;
             _ınvoiceItemService = ınvoiceItemService;
+            _context = context;
         }
 
         public ActionResult Index()
@@ -66,6 +70,16 @@ namespace CommercialAutomation.MvcWebUI.Controllers
         {
             var result = _ınvoiceItemService.GetAllByInvoiceId(id);
             return View(result);
+        }
+
+        [AllowAnonymous]
+        public ActionResult InvoiceDynamic()
+        {
+            InvoiceAndInvoiceItem item = new InvoiceAndInvoiceItem();
+          
+            item.InvoiceValue = _context.Invoices.ToList();
+            item.InvoiceItemValue = _context.InvoiceItems.ToList();
+            return View(item);
         }
     }
 }
