@@ -12,6 +12,7 @@ using System.Web.Security;
 
 namespace CommercialAutomation.MvcWebUI.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         // GET: Login
