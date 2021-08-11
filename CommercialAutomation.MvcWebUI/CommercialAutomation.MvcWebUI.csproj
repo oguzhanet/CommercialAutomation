@@ -2323,6 +2323,11 @@
     <Content Include="Templates\ContactFrom\vendor\select2\select2.min.css" />
     <Content Include="Templates\ContactFrom\vendor\select2\select2.min.js" />
     <Content Include="Templates\ContactFrom\vendor\tilt\tilt.jquery.min.js" />
+    <Content Include="Templates\errorpage\css\font-awesome.min.css" />
+    <Content Include="Templates\errorpage\css\style.css" />
+    <Content Include="Templates\errorpage\fonts\fontawesome-webfont.svg" />
+    <Content Include="Templates\errorpage\index.html" />
+    <Content Include="Templates\errorpage\readme.txt" />
     <Content Include="Templates\panel\404.html" />
     <Content Include="Templates\panel\blank.html" />
     <Content Include="Templates\panel\buttons.html" />
@@ -4972,6 +4977,11 @@
     <Content Include="Views\CustomerPanel\CargoFollow.cshtml" />
     <Content Include="Views\CustomerPanel\CargoFollowDetail.cshtml" />
     <Content Include="Views\ErrorPage\PageError.cshtml" />
+    <Content Include="Templates\errorpage\fonts\fontawesome-webfont.eot" />
+    <Content Include="Templates\errorpage\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Templates\errorpage\fonts\fontawesome-webfont.woff" />
+    <Content Include="Templates\errorpage\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Templates\errorpage\fonts\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
