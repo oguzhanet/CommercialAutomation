@@ -81,5 +81,32 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             item.InvoiceItemValue = _context.InvoiceItems.ToList();
             return View(item);
         }
+
+        public ActionResult InvoiceSave(string InvoiceSerialNumber, string InvoiceSequenceNumber,
+            string TaxAdministration, string DeliveryPerson, string Receiver, DateTime Date, string sumPrice, InvoiceItem[] ınvoiceItems) 
+        {
+            Invoice ınvoice = new Invoice();
+            ınvoice.InvoiceSerialNumber = InvoiceSerialNumber;
+            ınvoice.InvoiceSequenceNumber = InvoiceSequenceNumber;
+            ınvoice.TaxAdministration = TaxAdministration;
+            ınvoice.DeliveryPerson = DeliveryPerson;
+            ınvoice.Receiver = Receiver;
+            ınvoice.Date = Date;
+            ınvoice.SumPrice =decimal.Parse(sumPrice);
+            _context.Invoices.Add(ınvoice);
+
+            foreach (var item in ınvoiceItems)
+            {
+                InvoiceItem ınvoiceItem = new InvoiceItem();
+                ınvoiceItem.Description = item.Description;
+                ınvoiceItem.UnitPrice = item.UnitPrice;
+                ınvoiceItem.InvoiceId = item.InvoiceItemId;
+                ınvoiceItem.Quantity = item.Quantity;
+                ınvoiceItem.SumPrice = item.SumPrice;
+                _context.InvoiceItems.Add(ınvoiceItem);
+            }
+            _context.SaveChanges();
+            return Json("İşlem Başarılı", JsonRequestBehavior.AllowGet);
+        }
     }
 }

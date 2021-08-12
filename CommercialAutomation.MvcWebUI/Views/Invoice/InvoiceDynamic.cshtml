@@ -283,7 +283,7 @@
                             </div>
 
                             <label>Toplam Tutar</label>
-                            <input type="text" id="SumPrice" name="SumPrice" placeholder="Toplam Tutar" class="form-control" />
+                            <input type="text" id="sumPrice" name="SumPrice" placeholder="Toplam Tutar" class="form-control" />
 
                         </div>
 
@@ -504,7 +504,7 @@
 
                 type: 'POST',
 
-                url: "/Siparis/SaveOrder",
+                url: "/Invoice/InvoiceSave",
 
                 data: data,
 
@@ -544,13 +544,13 @@
 
                 orderArr.push({
 
-                    urun: $(this).find('td:eq(0)').html(),
+                    Description: $(this).find('td:eq(0)').html(),
 
-                    Adet: $(this).find('td:eq(1)').html(),
+                    Quantity: $(this).find('td:eq(1)').html(),
 
-                    Fiyat: $(this).find('td:eq(2)').html(),
+                    UnitPrice: $(this).find('td:eq(2)').html(),
 
-                    Toplam: $(this).find('td:eq(3)').html()
+                    SumPrice: $(this).find('td:eq(3)').html()
 
                 });
 
@@ -562,11 +562,21 @@
 
             var data = JSON.stringify({
 
-                ad: $("#ad").val(),
+                InvoiceSerialNumber: $("#InvoiceSerialNumber").val(),
 
-                sehir: $("#sehir").val(),
+                InvoiceSequenceNumber: $("#InvoiceSequenceNumber").val(),
 
-                order: orderArr
+                TaxAdministration: $("#TaxAdministration").val(),
+
+                DeliveryPerson: $("#DeliveryPerson").val(),
+
+                Receiver: $("#Receiver").val(),
+
+                Date: $("#Date").val(),
+
+                sumPrice: $("#sumPrice").val(),
+
+                ınvoiceItems: orderArr
 
             });
 
