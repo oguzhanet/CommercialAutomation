@@ -146,7 +146,7 @@ namespace CommercialAutomation.MvcWebUI.Controllers
 
         public PartialViewResult MessageLayout()
         {
-            //var parameter = (string)Session["CustomerMail"];
+            var parameter = (string)Session["CustomerMail"];
             //var result = _messageService.GetAllInbox(parameter).OrderByDescending(x => x.MessageId).ToList();
             //ViewBag.result = result.Count();
    
