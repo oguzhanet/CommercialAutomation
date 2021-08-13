@@ -72,7 +72,6 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             return View(result);
         }
 
-        [AllowAnonymous]
         public ActionResult InvoiceDynamic()
         {
             InvoiceAndInvoiceItem item = new InvoiceAndInvoiceItem();
@@ -82,6 +81,7 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             return View(item);
         }
 
+        //Refaktor edeceğim 
         public ActionResult InvoiceSave(string InvoiceSerialNumber, string InvoiceSequenceNumber,
             string TaxAdministration, string DeliveryPerson, string Receiver, DateTime Date, string sumPrice, InvoiceItem[] ınvoiceItems) 
         {

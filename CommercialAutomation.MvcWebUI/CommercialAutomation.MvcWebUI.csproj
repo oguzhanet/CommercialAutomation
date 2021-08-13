@@ -4985,6 +4985,7 @@
     <Content Include="Templates\errorpage\fonts\fontawesome-webfont.woff2" />
     <Content Include="Templates\errorpage\fonts\FontAwesome.otf" />
     <Content Include="Views\Invoice\InvoiceDynamic.cshtml" />
+    <Content Include="Views\CustomerPanel\MessageLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

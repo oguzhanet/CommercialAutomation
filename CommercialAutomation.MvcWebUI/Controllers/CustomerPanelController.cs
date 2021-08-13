@@ -40,7 +40,7 @@ namespace CommercialAutomation.MvcWebUI.Controllers
 
             id = _context.Customers.Where(x => x.CustomerMail == parameter).Select(z => z.CustomerId).FirstOrDefault();
             var result = _customerService.GetById(id);
-
+            
             var customerImage = _context.Customers.Where(x => x.CustomerMail == parameter).Select(z => z.CustomerImage).FirstOrDefault();
             ViewBag.customerImage = customerImage;
 
@@ -144,11 +144,22 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             return PartialView();
         }
 
+        public PartialViewResult MessageLayout()
+        {
+            //var parameter = (string)Session["CustomerMail"];
+            //var result = _messageService.GetAllInbox(parameter).OrderByDescending(x => x.MessageId).ToList();
+            //ViewBag.result = result.Count();
+   
+            return PartialView();
+        }
+
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
             Session.Abandon();
             return RedirectToAction("Index", "Login");
         }
+
+
     }
 }
