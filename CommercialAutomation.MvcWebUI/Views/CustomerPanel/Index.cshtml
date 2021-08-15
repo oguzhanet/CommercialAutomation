@@ -65,13 +65,13 @@
 
                                 @if (@ViewBag.writerImage == null)
                                 {
-                                    <img style="width:150px; height:170px" class="profile-user-img img-fluid img-circle figure-img img-fluid rounded"
+                                    <img style="width:150px; height:170px; border-top-left-radius:25px; border-top-right-radius:25px; border-bottom-left-radius:25px; border-bottom-right-radius:25px" class="profile-user-img img-fluid img-circle @*figure-img img-fluid rounded*@"
                                          src="@ViewBag.customerImage"
                                          alt="User profile picture">
                                 }
                                 else
                                 {
-                                    <img style="width:150px; height:170px" class="profile-user-img img-fluid img-circle figure-img img-fluid rounded"
+                                    <img style="width:150px; height:170px; border-top-left-radius:25px; border-top-right-radius:25px; border-bottom-left-radius:25px; border-bottom-right-radius:25px" class="profile-user-img img-fluid img-circle @*figure-img img-fluid rounded*@"
                                          src="~/Templates/AdminLTE-3.0.4/dist/img/avatar04.png"
                                          alt="User profile picture">
                                 }
