@@ -29,13 +29,13 @@
         </form>
         <!-- Navbar-->
         <ul style="margin-right:65px" class="navbar-nav ml-auto ml-md-0">
-            <li class="nav-item active"><a class="nav-link" href="/Showcase/Index/#about">Hakkımızda</a></li>
+            <li class="nav-item active"><a class="nav-link" href="#">Hakkımızda</a></li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                     <a class="dropdown-item" href="#">Ayarlar</a><a class="dropdown-item" href="#">Hesabım</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html">Çıkış Yap</a>
+                    <a class="dropdown-item" href="/CustomerPanel/LogOut/">Çıkış Yap</a>
                 </div>
             </li>
         </ul>
@@ -67,31 +67,31 @@
                             Personeller
                         </a>
                         <a class="nav-link" href="/Cargo/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-car"></i></div>
                             Kargolar
                         </a>
                         @*<a class="nav-link" href="/Product/ProductList/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-print"></i></div>
-                            Pdf ~ Excel
-                        </a>*@
+            <div class="sb-nav-link-icon"><i class="fas fa-print"></i></div>
+            Pdf ~ Excel
+        </a>*@
                         <a class="nav-link" href="/Statistics/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-charging-station"></i></div>
                             İstatistikler
                         </a>
                         <a class="nav-link" href="/Statistics/EasyTable/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                             Hızlı Bakış Tabloları
                         </a>
                         @*<a class="nav-link" href="/Gallery/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
-                            Galeri
-                        </a>*@
+            <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+            Galeri
+        </a>*@
                         @*<a class="nav-link" href="/Product/ProductDetail/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
-                            Ürün Detay
-                        </a>*@
+            <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+            Ürün Detay
+        </a>*@
                         <a class="nav-link" href="/Graphic/GoogleChart/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-chart-pie"></i></div>
                             Grafikler
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
@@ -104,13 +104,11 @@
                         </a>
                         <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                    Yetkilendirme
-                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                <a class="nav-link" href="/Admin/Index/">
+                                    <div class="sb-nav-link-icon"></div>
+                                    Admin ve Yetki
                                 </a>
-                                <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
-                                    <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="login.html">Login</a><a class="nav-link" href="register.html">Register</a><a class="nav-link" href="password.html">Forgot Password</a></nav>
-                                </div>
+
                                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
                                     Hata Sayfaları
                                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -120,19 +118,20 @@
                                 </div>
                             </nav>
                         </div>
-                        <div class="sb-sidenav-menu-heading">Satışlar &ndash; Raporlar</div>
+                        <div class="sb-sidenav-menu-heading">Satışlar &ndash; Faturalar</div>
                         <a class="nav-link" href="/SaleMovement/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-money-bill-wave"></i></div>
                             Satışlar
                         </a>
-                        <a class="nav-link" href="/Invoice/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                        <a class="nav-link" href="/Invoice/InvoiceDynamic/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-money-check-alt"></i></div>
                             Faturalar
                         </a>
-                        <a class="nav-link" href="tables.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-pencil-alt"></i></div>
-                            Fatura Kalemler
+                        <a class="nav-link" href="/CustomerPanel/LogOut/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
+                            Çıkış
                         </a>
+                        <br />
                     </div>
                 </div>
             </nav>

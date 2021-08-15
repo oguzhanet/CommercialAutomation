@@ -10,7 +10,6 @@ using System.Web.Mvc;
 
 namespace CommercialAutomation.MvcWebUI.Controllers
 {
-    [AllowAnonymous]
     public class AdminController : Controller
     {
         // GET: Admin
