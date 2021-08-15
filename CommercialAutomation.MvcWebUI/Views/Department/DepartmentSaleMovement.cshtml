@@ -21,7 +21,7 @@
         <th>Fiyat</th>
         <th>Toplam Fiyat</th>
         <th>Tarih</th>
-        <th>Yazdır</th>
+        @*<th>Yazdır</th>*@
     </tr>
 
     @foreach (var item in Model)
@@ -34,7 +34,7 @@
     <td>@item.UnitPirce</td>
     <td>@item.SumPrice</td>
     <td>@item.SaleDate</td>
-    <td><a href="#" class="btn btn-default" style="background-color:#0094ff; color:white;">Satış Detay</a></td>
+    @*<td><a href="#" class="btn btn-default" style="background-color:#0094ff; color:white;">Satış Detay</a></td>*@
 </tr>
     }
 </table>

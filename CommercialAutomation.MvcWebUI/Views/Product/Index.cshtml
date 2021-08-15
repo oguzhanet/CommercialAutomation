@@ -61,7 +61,14 @@
                 <td>@item.PurchasePrice</td>
                 <td>@item.SalePrice</td>
                 <td>
-                    <img src="@item.ProductImage" style="width:90px; height:70px" />
+                    @if (item.ProductImage == null)
+                    {
+                        <img src="https://fscomps.fotosearch.com/compc/CSP/CSP224/yeni-%C3%BCr%C3%BCn-ikon-haz%C4%B1r-foto%C4%9Fraf__k24425467.jpg" style="width:90px; height:70px" />
+                    }
+                    else
+                    {
+                        <img src="@item.ProductImage" style="width:90px; height:70px" />
+                    }
                 </td>
                 <td><a href="/Product/Delete/@item.ProductId" class="@statusButton">@status</a></td>
                 <td><a href="/Product/Update/@item.ProductId" class="btn btn-default" style="background-color:#ff6a00; color:white;">Güncelle</a></td>

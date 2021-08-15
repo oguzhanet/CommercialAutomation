@@ -50,6 +50,9 @@ namespace CommercialAutomation.Business.DependencyResolvers.Ninject
 
             Bind<IMessageService>().To<MessageManager>().InSingletonScope();
             Bind<IMessageDal>().To<EfMessageDal>().InSingletonScope();
+
+            Bind<IAdminService>().To<AdminManager>().InSingletonScope();
+            Bind<IAdminDal>().To<EfAdminDal>().InSingletonScope();
         }
     }
 }

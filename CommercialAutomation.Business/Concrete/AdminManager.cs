@@ -20,27 +20,27 @@ namespace CommercialAutomation.Business.Concrete
 
         public void Add(Admin admin)
         {
-            throw new NotImplementedException();
+            _adminDal.Add(admin);
         }
 
         public void Delete(Admin admin)
         {
-            throw new NotImplementedException();
+            _adminDal.Delete(admin);
         }
 
         public List<Admin> GetAll()
         {
-            throw new NotImplementedException();
+            return _adminDal.GetAll();
         }
 
         public Admin GetById(int id)
         {
-            throw new NotImplementedException();
+            return _adminDal.Get(x => x.AdminId == id);
         }
 
         public void Update(Admin admin)
         {
-            throw new NotImplementedException();
+            _adminDal.Update(admin);
         }
     }
 }
