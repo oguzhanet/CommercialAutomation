@@ -4990,6 +4990,7 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\AdminPartial.cshtml" />
     <Content Include="Views\Admin\AdminUpdate.cshtml" />
+    <Content Include="Views\ToDoList\AddPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

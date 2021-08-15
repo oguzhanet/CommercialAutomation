@@ -96,7 +96,7 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             {
                 FormsAuthentication.SetAuthCookie(adminInfo.Mail, false);
                 Session["Mail"] = adminInfo.Mail;
-                return RedirectToAction("Index", "Category");
+                return RedirectToAction("Index", "ToDoList");
             }
 
             return RedirectToAction("Index");

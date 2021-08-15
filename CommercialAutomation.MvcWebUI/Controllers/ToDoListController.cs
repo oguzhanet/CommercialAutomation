@@ -1,6 +1,7 @@
 ﻿using CommercialAutomation.Business.Concrete;
 using CommercialAutomation.DataAccess.Concrete;
 using CommercialAutomation.DataAccess.Concrete.EntityFramework;
+using CommercialAutomation.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,20 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             return View(result);
         }
 
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(ToDoList toDoList)
+        {
+            toDoList.ToDoListStatus = false;
+            toDoListManager.Add(toDoList);
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Delete(int id)
         {
             var result = toDoListManager.GetById(id);
@@ -58,5 +73,10 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             toDoListManager.Update(result);
             return RedirectToAction("Index");
         }
+
+        public PartialViewResult AddPartial()
+        {
+            return PartialView();
+        } 
     }
 }
