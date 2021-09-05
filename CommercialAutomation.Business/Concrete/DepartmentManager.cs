@@ -1,6 +1,9 @@
 ﻿using CommercialAutomation.Business.Abstract;
 using CommercialAutomation.DataAccess.Abstract;
 using CommercialAutomation.Entities.Concrete;
+using DevFramework.Core.Aspects.Postsharp.CacheAspects;
+using DevFramework.Core.Aspects.Postsharp.PerformanceAspects;
+using DevFramework.Core.CrossCuttingConcerns.Caching.Microsoft;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,16 +21,20 @@ namespace CommercialAutomation.Business.Concrete
             _departmentDal = departmentDal;
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Add(Department department)
         {
             _departmentDal.Add(department);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Delete(Department department)
         {
             _departmentDal.Delete(department);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [PerformanceCounterAspect(5)]
         public List<Department> GetAll()
         {
             return _departmentDal.GetAll();
@@ -38,6 +45,7 @@ namespace CommercialAutomation.Business.Concrete
             return _departmentDal.Get(x => x.DepartmentId == id);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Update(Department department)
         {
             _departmentDal.Update(department);

@@ -27,7 +27,7 @@ namespace CommercialAutomation.MvcWebUI.Controllers
             _ınvoiceItemService = ınvoiceItemService;
             _context = context;
         }
-
+        //[AllowAnonymous]
         public ActionResult Index()
         {
             var result = ınvoiceManager.GetAll();

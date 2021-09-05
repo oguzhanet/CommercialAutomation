@@ -1,6 +1,9 @@
 ﻿using CommercialAutomation.Business.Abstract;
 using CommercialAutomation.DataAccess.Abstract;
 using CommercialAutomation.Entities.Concrete;
+using DevFramework.Core.Aspects.Postsharp.CacheAspects;
+using DevFramework.Core.Aspects.Postsharp.PerformanceAspects;
+using DevFramework.Core.CrossCuttingConcerns.Caching.Microsoft;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,16 +21,20 @@ namespace CommercialAutomation.Business.Concrete
             _adminDal = adminDal;
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Add(Admin admin)
         {
             _adminDal.Add(admin);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Delete(Admin admin)
         {
             _adminDal.Delete(admin);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [PerformanceCounterAspect(5)]
         public List<Admin> GetAll()
         {
             return _adminDal.GetAll();
@@ -38,6 +45,7 @@ namespace CommercialAutomation.Business.Concrete
             return _adminDal.Get(x => x.AdminId == id);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Update(Admin admin)
         {
             _adminDal.Update(admin);

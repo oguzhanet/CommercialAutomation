@@ -1,6 +1,9 @@
 ﻿using CommercialAutomation.Business.Abstract;
 using CommercialAutomation.DataAccess.Abstract;
 using CommercialAutomation.Entities.Concrete;
+using DevFramework.Core.Aspects.Postsharp.CacheAspects;
+using DevFramework.Core.Aspects.Postsharp.PerformanceAspects;
+using DevFramework.Core.CrossCuttingConcerns.Caching.Microsoft;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,21 +21,26 @@ namespace CommercialAutomation.Business.Concrete
             _cargoFollowDal = cargoFollowDal;
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Add(CargoFollow cargoFollow)
         {
             _cargoFollowDal.Add(cargoFollow);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Delete(CargoFollow cargoFollow)
         {
             _cargoFollowDal.Delete(cargoFollow);
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [PerformanceCounterAspect(5)]
         public List<CargoFollow> GetAll()
         {
             return _cargoFollowDal.GetAll();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<CargoFollow> GetAllByFollowCode(string followCode)
         {
             return _cargoFollowDal.GetAll(x => x.CargoFollowCode == followCode);
@@ -43,6 +51,7 @@ namespace CommercialAutomation.Business.Concrete
             return _cargoFollowDal.Get(x => x.CargoFollowId == id);
         }
 
+        [CacheRemoveAspect(typeof(MemoryCacheManager))]
         public void Update(CargoFollow cargoFollow)
         {
             _cargoFollowDal.Update(cargoFollow);

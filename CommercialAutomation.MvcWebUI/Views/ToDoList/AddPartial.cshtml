@@ -5,7 +5,7 @@
     <div class="row gx-5">
 
         <div class="col-7" style="margin-top:15px; margin-bottom:5px; margin-right:15px;">
-          
+
             <div class="modal" id="Modal1">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -17,13 +17,13 @@
                             <div class="modal-body">
                                 <label>İçerik</label>
                                 @*<input type="text" name="ToDoListHeading" class="form-control" />*@
-                                @Html.TextAreaFor(x=>x.ToDoListHeading, new { @class = "form-control" })
+                                @Html.TextAreaFor(x => x.ToDoListHeading, new { @class = "form-control" })
                                 <br />
                                 <label>Tarih</label>
                                 <input type="datetime-local" name="ToDoListDate" class="form-control" />
                                 <br />
-                                
-                                <button class="btn btn-info">Kaydet</button>
+
+                                <button class="btn btn-info" id="added">Kaydet</button>
                             </div>
                         }
                     </div>
@@ -32,3 +32,17 @@
         </div>
     </div>
 </div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $('#added').click(function () {
+        swal({
+            title: "Eklendi!",
+            text: "Kayıt Başarıyla Eklendi!",
+            icon: "success",
+            button: false
+        });
+    });
+</script>
